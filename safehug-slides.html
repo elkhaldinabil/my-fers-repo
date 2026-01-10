@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHug - Présentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-blue: #1E40AF;
+            --secondary-blue: #3B82F6;
+            --light-blue: #DBEAFE;
+            --accent-red: #DC2626;
+            --accent-orange: #EA580C;
+            --accent-green: #059669;
+            --white: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --dark-gray: #1E293B;
+            --text-gray: #64748B;
+            --border-gray: #E2E8F0;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --border-radius-large: 20px;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 64px;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light-gray);
+            overflow-x: hidden;
+        }
+
+        .slides-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            padding: var(--spacing-xl);
+            background: var(--white);
+            transition: transform 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Slide 1 - Hero */
+        .slide-1 {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+        }
+
+        .slide-1 .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .slide-1 .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+        }
+
+        .slide-1 .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.2;
+        }
+
+        .slide-1 .subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            color: #FEF3C7;
+        }
+
+        .slide-1 .description {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .slide-1 .value-prop {
+            font-size: 1.4rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            border-radius: var(--border-radius-large);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Generic Slide Styles */
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .bullet-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .bullet-list li {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        .highlight-box {
+            background: var(--accent-red);
+            color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .info-box {
+            background: var(--light-blue);
+            color: var(--dark-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin: var(--spacing-lg) 0;
+            border: 2px solid var(--secondary-blue);
+        }
+
+        /* Grid layouts */
+        .problems-grid, .benefits-grid, .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .problem-card, .benefit-card, .use-case-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-medium);
+            border-left: 4px solid var(--accent-red);
+            text-align: left;
+        }
+
+        .benefit-card {
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .use-case-card {
+            border-left: 4px solid var(--secondary-blue);
+        }
+
+        .problem-card h3, .benefit-card h3, .use-case-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .problem-card p, .benefit-card p, .use-case-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Detailed lists */
+        .detailed-list {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-medium);
+            text-align: left;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .detailed-list h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .detailed-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detailed-list li {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-lg);
+            position: relative;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        .detailed-list li::before {
+            content: "•";
+            color: var(--accent-orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Case studies */
+        .case-study {
+            background: var(--light-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .case-study h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .case-study p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            line-height: 1.5;
+        }
+
+        /* Solution features */
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .feature-item {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            text-align: left;
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .feature-item p {
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* Strategic positioning */
+        .positioning-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .positioning-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+            border-top: 4px solid var(--accent-green);
+        }
+
+        .positioning-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .positioning-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Conclusion */
+        .conclusion-content {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: var(--spacing-xxl);
+            border-radius: var(--border-radius-large);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .conclusion-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: #FEF3C7;
+        }
+
+        .conclusion-content p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .conclusion-motto {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FEF3C7;
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .human-commitment {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-large);
+            backdrop-filter: blur(10px);
+        }
+
+        .human-commitment h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: #FEF3C7;
+        }
+
+        .human-commitment p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--spacing-md);
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: var(--text-gray);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicators {
+            position: fixed;
+            top: var(--spacing-xl);
+            right: var(--spacing-xl);
+            display: flex;
+            gap: var(--spacing-xs);
+            z-index: 1000;
+            flex-wrap: wrap;
+            max-width: 200px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: var(--spacing-md);
+            }
+
+            .slide-1 .logo {
+                font-size: 2.5rem;
+            }
+
+            .slide-1 .main-title {
+                font-size: 2.5rem;
+            }
+
+            .slide-1 .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .slide-title {
+                font-size: 2rem;
+            }
+
+            .problems-grid, .benefits-grid, .use-cases-grid, .solution-features, .positioning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bullet-list li {
+                font-size: 1.1rem;
+            }
+
+            .detailed-list {
+                padding: var(--spacing-lg);
+            }
+
+            .detailed-list li {
+                font-size: 1rem;
+            }
+
+            .case-study p {
+                font-size: 1rem;
+            }
+
+            .conclusion-content {
+                padding: var(--spacing-lg);
+            }
+
+            .conclusion-content h2 {
+                font-size: 2rem;
+            }
+
+            .conclusion-content p {
+                font-size: 1.1rem;
+            }
+
+            .slide-indicators {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+        <!-- Slide 1: SafeHug -->
+        <div class="slide slide-1 active">
+            <div class="slide-content">
+                <div class="logo">SafeHug</div>
+                <div class="tagline">Sécurité • Information vitale • Réduction du risque</div>
+                <div class="main-title">La housse de ceinture de sécurité avec carte nominative données de santé</div>
+                <div class="subtitle">Un levier de prévention à fort impact assurantiel</div>
+                <div class="description">SafeHug transforme un objet du quotidien en outil de protection humaine et financière.</div>
+                <div class="value-prop">SafeHug transforme un objet du quotidien en outil de protection humaine et financière.</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: LE CONSTAT ASSURANTIEL -->
+        <div class="slide slide-2">
+            <div class="slide-content">
+                <h1 class="slide-title">LE CONSTAT ASSURANTIEL</h1>
+                
+                <ul class="bullet-list">
+                    <li>• Sinistres corporels graves à forte charge</li>
+                    <li>• Décès et invalidités lourdes</li>
+                    <li>• Rentes et coûts médicaux long terme</li>
+                    <li>• Contentieux post-accident</li>
+                </ul>
+
+                <div class="info-box">
+                    Une partie significative de ces coûts est liée à la prise en charge initiale, non optimisée faute d'informations.
+                </div>
+
+                <div class="highlight-box">
+                    Le sinistre commence au moment de l'accident, pas à l'hôpital.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: LE FACTEUR DÉTERMINANT : TEMPS & INFORMATION -->
+        <div class="slide slide-3">
+            <div class="slide-content">
+                <h1 class="slide-title">LE FACTEUR DÉTERMINANT : TEMPS & INFORMATION</h1>
+                
+                <div class="info-box" style="margin-bottom: var(--spacing-xl);">
+                    <strong>Lors d'un accident grave :</strong><br>
+                    • la victime est souvent inconsciente,<br>
+                    • Désorientée, incapable de communiquer,<br>
+                    • ses données médicales sont inconnues.
+                </div>
+
+                <div class="highlight-box">
+                    La première heure « golden hour » conditionne la survie et les séquelles.
+                </div>
+
+                <div class="info-box" style="margin-top: var(--spacing-xl);">
+                    <strong>Les urgentistes et pompiers confirment que :</strong><br>
+                    « Une information fiable, claire et immédiatement accessible peut faire gagner des minutes précieuses et éviter des erreurs médicales. »
+                </div>
+
+                <div class="highlight-box" style="margin-top: var(--spacing-xl);">
+                    Sans information fiable, les secours prennent des décisions sous contrainte maximale.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: CE DONT LES SECOURS ONT BESOIN -->
+        <div class="slide slide-4">
+            <div class="slide-content">
+                <h1 class="slide-title">CE DONT LES SECOURS ONT BESOIN</h1>
+                
+                <div class="detailed-list">
+                    <h3>Informations essentielles</h3>
+                    <ul>
+                        <li>Identité (pour le suivi médical et légal)</li>
+                        <li>Âge</li>
+                        <li>Pathologies lourdes connues</li>
+                        <li>diabète</li>
+                        <li>épilepsie</li>
+                        <li>troubles cardiaques</li>
+                        <li>Traitements critiques</li>
+                        <li>anticoagulants (AVK, Xarelto, Eliquis…)</li>
+                        <li>insuline</li>
+                        <li>Allergies graves</li>
+                        <li>anesthésiques</li>
+                        <li>pénicilline</li>
+                        <li>Implants médicaux</li>
+                        <li>pacemaker / défibrillateur implantable</li>
+                        <li>pompe à insuline</li>
+                        <li>implant cochléaire</li>
+                    </ul>
+                </div>
+
+                <h2 style="font-size: 2rem; font-weight: 700; color: var(--primary-blue); margin: var(--spacing-xl) 0;">Cas concrets où l'information change tout</h2>
+
+                <div class="case-study">
+                    <h4>• Une victime inconsciente sous anticoagulants</h4>
+                    <p>risque hémorragique majeur → priorité absolue</p>
+                </div>
+
+                <div class="case-study">
+                    <h4>• Un accidenté avec pacemaker</h4>
+                    <p>gestes électriques adaptés, IRM évité</p>
+                </div>
+
+                <div class="case-study">
+                    <h4>• Une personne épileptique retrouvée au sol</h4>
+                    <p>distinction crise / traumatisme</p>
+                </div>
+
+                <div class="case-study">
+                    <h4>• Allergie grave non connue</h4>
+                    <p>un médicament peut devenir mortel</p>
+                </div>
+
+                <div class="info-box">
+                    <strong>Mais aussi</strong><br>
+                    Contact d'urgence<br>
+                    Numero d'assistance<br>
+                    Assureur /numero de police
+                </div>
+
+                <div class="highlight-box">
+                    Ce sont ces données qui orientent les gestes médicaux dès la première heure.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: SAFEHUG : LA SOLUTION CONCRÈTE -->
+        <div class="slide slide-5">
+            <div class="slide-content">
+                <h1 class="slide-title">SAFEHUG : LA SOLUTION CONCRÈTE</h1>
+                
+                <div class="info-box" style="margin-bottom: var(--spacing-xl); font-size: 1.3rem;">
+                    <strong>SafeHug, housse de ceinture de sécurité intégrant une carte nominative d'informations vitales :</strong>
+                </div>
+
+                <div class="solution-features">
+                    <div class="feature-item">
+                        <h4>• visible immédiatement par les secours,</h4>
+                        <p>Accès direct et immédiat à l'information vitale</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>• accessible sans téléphone, sans réseau,</h4>
+                        <p>Technologie autonome, fonctionne partout</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>• positionnée au plus près du conducteur ou passager,</h4>
+                        <p>Emplacement logique et visible en situation d'urgence</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>• pensée pour les situations d'urgence réelle.</h4>
+                        <p>Conçu par des experts de l'urgence</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="font-size: 1.6rem;">
+                    SafeHug rend l'information vitale là où les secours regardent naturellement.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: BÉNÉFICES POUR L'ASSURÉ -->
+        <div class="slide slide-6">
+            <div class="slide-content">
+                <h1 class="slide-title">BÉNÉFICES POUR L'ASSURÉ</h1>
+                
+                <div class="info-box" style="margin-bottom: var(--spacing-xl);">
+                    Avec SafeHug, l'assuré bénéficie de :
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>• une prise en charge médicale plus rapide et plus adaptée,</h3>
+                        <p>Traitement optimisé dès l'arrivée des secours grâce aux informations disponibles</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• une réduction du risque d'erreur médicale,</h3>
+                        <p>Prévention des complications dues à l'ignorance des antécédents médicaux</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• une diminution des séquelles potentielles,</h3>
+                        <p>Meilleure qualité de soins = meilleurs résultats à long terme</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• un sentiment de protection et de considération.</h3>
+                        <p>Tranquillité d'esprit pour l'assuré et sa famille</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="font-size: 1.5rem; background: var(--accent-green);">
+                    L'assuré n'est plus un numéro de contrat, mais une vie mieux protégée.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: BÉNÉFICES DIRECTS POUR L'ASSUREUR -->
+        <div class="slide slide-7">
+            <div class="slide-content">
+                <h1 class="slide-title">BÉNÉFICES DIRECTS POUR L'ASSUREUR</h1>
+                
+                <div class="info-box" style="margin-bottom: var(--spacing-xl);">
+                    Pour l'assureur, SafeHug permet :
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>• une réduction de la gravité des sinistres corporels,</h3>
+                        <p>Prise en charge optimisée = séquelles réduites</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• moins de complications médicales,</h3>
+                        <p>Traitement adapté dès les premières minutes</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• moins d'invalidités lourdes,</h3>
+                        <p>Amélioration des pronostics de récupération</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• une baisse des rentes longue durée,</h3>
+                        <p>Réduction des engagements financiers durables</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card" style="grid-column: 1 / -1; border-left: 4px solid var(--accent-green);">
+                    <h3>• une optimisation du coût moyen par sinistre.</h3>
+                    <p>Impact financier global positif sur le portefeuille</p>
+                </div>
+
+                <div class="highlight-box" style="font-size: 1.5rem; background: var(--accent-green);">
+                    Moins de gravité médicale = moins de charge financière durable.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: SAFEHUG : UN OUTIL DE PRÉVENTION À FORTE VALEUR AJOUTÉE -->
+        <div class="slide slide-8">
+            <div class="slide-content">
+                <h1 class="slide-title">SAFEHUG : UN OUTIL DE PRÉVENTION À FORTE VALEUR AJOUTÉE</h1>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>• Prévention active, utilisable au moment critique</h3>
+                        <p>Outil opérationnel déployé au moment où il est réellement nécessaire</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>• Innovation simple, non intrusive</h3>
+                        <p>Solution accessible à tous, sans complexité technologique</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card" style="grid-column: 1 / -1; border-left: 4px solid var(--accent-green); margin-top: var(--spacing-md);">
+                    <h3>• Démarche RSE concrète et visible</h3>
+                    <p>Engagement social tangible de l'assureur pour la protection de ses clients</p>
+                </div>
+
+                <div class="highlight-box" style="font-size: 1.6rem; background: var(--accent-green); margin-top: var(--spacing-xl);">
+                    SafeHug n'est pas un gadget : c'est un outil de prévention opérationnelle
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: CAS D'USAGE ASSURANTIEL -->
+        <div class="slide slide-9">
+            <div class="slide-content">
+                <h1 class="slide-title">CAS D'USAGE ASSURANTIEL</h1>
+                
+                <div class="info-box" style="margin-bottom: var(--spacing-xl);">
+                    SafeHug s'intègre naturellement dans :
+                </div>
+
+                <div class="use-cases-grid">
+                    <div class="use-case-card">
+                        <h3>• Assurance Auto</h3>
+                        <p>Protection directe des conducteurs et passagers</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3>• Flottes et véhicules professionnels</h3>
+                        <p>Sécurisation des équipes mobiles</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3>• Assurance Vie & Prévoyance</h3>
+                        <p>Complément aux garanties décès et invalidité</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3>• Programmes de prévention et fidélisation</h3>
+                        <p>Outil de relation client et de différenciation</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="font-size: 1.5rem; background: var(--secondary-blue);">
+                    Une solution unique, déployable sur plusieurs lignes de produits.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: POSITIONNEMENT STRATÉGIQUE -->
+        <div class="slide slide-10">
+            <div class="slide-content">
+                <h1 class="slide-title">POSITIONNEMENT STRATÉGIQUE</h1>
+                
+                <div class="info-box" style="margin-bottom: var(--spacing-xl);">
+                    Avec SafeHug, l'assureur devient :
+                </div>
+
+                <div class="positioning-grid">
+                    <div class="positioning-card">
+                        <h3>• acteur de la prévention,</h3>
+                        <p>Passage d'un rôle de réparateur à celui de protecteur actif</p>
+                    </div>
+                    <div class="positioning-card">
+                        <h3>• partenaire de la survie,</h3>
+                        <p>Engagement direct dans la préservation de la vie humaine</p>
+                    </div>
+                    <div class="positioning-card">
+                        <h3>• assureur humain et responsable,</h3>
+                        <p>Image de marque renforcée par l'engagement social</p>
+                    </div>
+                    <div class="positioning-card">
+                        <h3>• référence d'innovation utile.</h3>
+                        <p>Positionnement sur l'innovation à valeur sociale</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="font-size: 1.5rem; background: var(--accent-green);">
+                    L'assurance évolue : de la réparation vers la protection active.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: CONCLUSION -->
+        <div class="slide slide-11">
+            <div class="slide-content">
+                <div class="conclusion-content">
+                    <h2>SafeHug</h2>
+                    <p>Quand chaque minute compte,<br>l'information vitale protège l'assuré…<br>et sécurise l'assureur.</p>
+                    
+                    <p>Notre solution permet aux équipes d'urgence d'accéder rapidement à l'essentiel, sans technologie complexe, sans perte de temps, sans ambiguïté.</p>
+                    
+                    <div class="conclusion-motto">
+                        Parce qu'en situation d'urgence :<br>
+                        moins chercher, c'est plus sauver.
+                    </div>
+                </div>
+
+                <div class="human-commitment">
+                    <h3>Un engagement humain</h3>
+                    <p>Au-delà d'un produit, c'est une démarche de prévention, de responsabilité et de respect de la vie.</p>
+                    
+                    <div class="highlight-box" style="background: var(--accent-green); margin-top: var(--spacing-lg);">
+                        SafeHug est un investissement humain<br>à retour assurantiel durable.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="slide-indicators">
+        <div class="indicator active" data-slide="0"></div>
+        <div class="indicator" data-slide="1"></div>
+        <div class="indicator" data-slide="2"></div>
+        <div class="indicator" data-slide="3"></div>
+        <div class="indicator" data-slide="4"></div>
+        <div class="indicator" data-slide="5"></div>
+        <div class="indicator" data-slide="6"></div>
+        <div class="indicator" data-slide="7"></div>
+        <div class="indicator" data-slide="8"></div>
+        <div class="indicator" data-slide="9"></div>
+        <div class="indicator" data-slide="10"></div>
+    </div>
+
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" disabled>
+            <i class="fas fa-chevron-left"></i> Précédent
+        </button>
+        <button class="nav-btn" id="nextBtn">
+            Suivant <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script>
+        // Slide navigation
+        let currentSlide = 0;
+        const totalSlides = 11;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            slides[n].classList.add('active');
+            indicators[n].classList.add('active');
+            
+            prevBtn.disabled = n === 0;
+            nextBtn.disabled = n === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
+
