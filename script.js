@@ -1,37 +1,84 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle with Overlay
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
     
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-        });
+            
+            // Toggle overlay
+            if (mobileOverlay) {
+                mobileOverlay.classList.toggle('active');
+            }
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }, { passive: true });
         
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-            });
+                if (mobileOverlay) {
+                    mobileOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            }, { passive: true });
         });
+        
+        // Close mobile menu when clicking on mobile CTA
+        document.querySelectorAll('.mobile-cta-only .btn-aluminum').forEach(btn => {
+            btn.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                if (mobileOverlay) {
+                    mobileOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            }, { passive: true });
+        });
+        
+        // Close mobile menu when clicking on overlay
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                this.classList.remove('active');
+                document.body.style.overflow = '';
+            }, { passive: true });
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                if (mobileOverlay) {
+                    mobileOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            }
+        }, { passive: true });
     }
     
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     
-    window.addEventListener('scroll', function() {
+    function updateActiveNav() {
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            if (pageYOffset >= sectionTop - 200) {
+            if (window.pageYOffset >= sectionTop - 200) {
                 current = section.getAttribute('id');
             }
         });
@@ -42,7 +89,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
-    });
+    }
+    
+    // Use requestAnimationFrame for smoother scroll performance
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateActiveNav();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
     
     // Benefits Tabs
     const tabBtns = document.querySelectorAll('.tab-btn');
