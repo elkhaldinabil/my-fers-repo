@@ -45,6 +45,15 @@
                     <a href="#specs" class="nav-link">Spécifications</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link">Utilisation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#emergency-services" class="nav-link">Urgence</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ambulance" class="nav-link">Flottes</a>
+                </li>
+                <li class="nav-item">
                     <a href="#avontag" class="nav-link">Avontag</a>
                 </li>
                 <li class="nav-item">
@@ -315,44 +324,407 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- How It Works Section - Enhanced Design -->
     <section class="how-it-works-section" id="how-it-works">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">03</span>
                 <h2 class="section-title">Comment Utiliser SafeHug</h2>
-                <p class="section-subtitle">Simple et pratique au quotidien</p>
+                <p class="section-subtitle">Simple et pratique en 3 étapes</p>
             </div>
             
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
+            <!-- Enhanced Steps Timeline -->
+            <div class="enhanced-steps">
+                <div class="step-timeline">
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="enhanced-step-card" data-step="1">
+                    <div class="step-visual">
+                        <div class="step-icon-circle">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="step-illustration">
+                            <svg viewBox="0 0 100 70" class="step-svg">
+                                <rect x="10" y="10" width="80" height="50" rx="4" fill="#1E40AF"/>
+                                <rect x="15" y="15" width="30" height="25" rx="2" fill="white"/>
+                                <circle cx="30" cy="27" r="8" fill="#DBEAFE"/>
+                                <rect x="15" y="45" width="40" height="4" rx="1" fill="white"/>
+                                <rect x="15" y="52" width="30" height="3" rx="1" fill="#DBEAFE"/>
+                                <rect x="55" y="20" width="30" height="20" rx="2" fill="#3B82F6"/>
+                                <path d="M60 25 L65 35 L75 25" stroke="white" stroke-width="2" fill="none"/>
+                                <rect x="60" y="45" width="25" height="3" rx="1" fill="#DBEAFE"/>
+                            </svg>
+                        </div>
+                    </div>
                     <div class="step-content">
+                        <div class="step-number-badge">1</div>
                         <h3>Insérez votre carte</h3>
-                        <p>Glissez votre carte d'informations personnelles dans la housse dédiée.</p>
+                        <p>Glissez votre carte d'informations personnelles dans la housse dédiée avec fenêtre transparente.</p>
+                        <ul class="step-features">
+                            <li><i class="fas fa-check"></i> Carte bien positionnée</li>
+                            <li><i class="fas fa-check"></i> Lisibilité optimale</li>
+                            <li><i class="fas fa-check"></i> Protection maximale</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">2</div>
+                <div class="enhanced-step-card" data-step="2">
+                    <div class="step-visual">
+                        <div class="step-icon-circle">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="step-illustration">
+                            <svg viewBox="0 0 100 70" class="step-svg">
+                                <rect x="15" y="15" width="70" height="40" rx="4" fill="#64748B"/>
+                                <rect x="20" y="20" width="60" height="20" rx="2" fill="#94A3B8"/>
+                                <circle cx="30" cy="45" r="10" fill="#1E293B"/>
+                                <circle cx="70" cy="45" r="10" fill="#1E293B"/>
+                                <circle cx="30" cy="45" r="5" fill="#475569"/>
+                                <circle cx="70" cy="45" r="5" fill="#475569"/>
+                                <!-- Belt strap -->
+                                <path d="M10 25 Q30 10 50 25 T90 25" stroke="#1E40AF" stroke-width="8" fill="none"/>
+                                <!-- SafeHug on belt -->
+                                <rect x="35" y="18" width="30" height="20" rx="3" fill="#DC2626"/>
+                                <rect x="37" y="20" width="26" height="16" rx="2" fill="white"/>
+                                <rect x="42" y="23" width="8" height="10" rx="1" fill="#3B82F6"/>
+                                <rect x="52" y="23" width="8" height="10" rx="1" fill="#3B82F6"/>
+                            </svg>
+                        </div>
+                    </div>
                     <div class="step-content">
+                        <div class="step-number-badge">2</div>
                         <h3>Installez sur la ceinture</h3>
-                        <p>Glissez la housse SafeHug sur votre ceinture de sécurité.</p>
+                        <p>Glissez la housse SafeHug sur votre ceinture de sécurité. Elle s'adapte parfaitement à tous les types de ceintures.</p>
+                        <ul class="step-features">
+                            <li><i class="fas fa-check"></i> Installation rapide</li>
+                            <li><i class="fas fa-check"></i> Fixation sécurisée</li>
+                            <li><i class="fas fa-check"></i> Accès immédiat</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>C'est prêt !</h3>
-                        <p>Vos informations sont maintenant accessibles et protégées.</p>
+                <div class="enhanced-step-card" data-step="3">
+                    <div class="step-visual">
+                        <div class="step-icon-circle">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="step-illustration">
+                            <svg viewBox="0 0 100 70" class="step-svg">
+                                <!-- Heart with medical cross -->
+                                <path d="M50 65 C20 45 10 30 10 20 C10 8 25 0 40 5 C45 7 48 12 50 15 C52 12 55 7 60 5 C75 0 90 8 90 20 C90 30 80 45 50 65Z" fill="#DC2626"/>
+                                <rect x="45" y="20" width="10" height="25" rx="2" fill="white"/>
+                                <rect x="37" y="28" width="26" height="10" rx="2" fill="white"/>
+                                <!-- Checkmark -->
+                                <circle cx="80" cy="55" r="15" fill="#059669"/>
+                                <path d="M70 55 L77 62 L90 48" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                     </div>
+                    <div class="step-content">
+                        <div class="step-number-badge">3</div>
+                        <h3>C'est prêt !</h3>
+                        <p>Vos informations sont maintenant accessibles instantanément. En cas d'urgence, les secours peuvent vous identifier et connaître vos informations vitales.</p>
+                        <ul class="step-features">
+                            <li><i class="fas fa-check"></i> Accessible 24/7</li>
+                            <li><i class="fas fa-check"></i> Sans technologie</li>
+                            <li><i class="fas fa-check"></i> Fiabilité à 100%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Setup Info -->
+            <div class="quick-setup">
+                <div class="setup-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="setup-content">
+                    <h4>Configuration en moins de 30 secondes</h4>
+                    <p>Vous n'avez besoin d'aucun outil, aucune application, aucune connexion internet. SafeHug fonctionne immédiatement.</p>
                 </div>
             </div>
             
             <div class="highlight-box success">
                 <i class="fas fa-check-circle"></i>
-                <p>En quelques secondes, votre protection est activée et vos informations sont accessibles.</p>
+                <p>En quelques secondes, votre protection est activée et vos informations sont accessibles aux secours en cas de besoin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Services Section - NEW -->
+    <section class="emergency-services-section" id="emergency-services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number emergency">04</span>
+                <h2 class="section-title">SafeHug pour les Services d'Urgence</h2>
+                <p class="section-subtitle">Un outil indispensable pour les secouristes</p>
+            </div>
+            
+            <div class="emergency-intro">
+                <div class="emergency-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <div class="emergency-text">
+                    <p>Chaque seconde compte lors d'une intervention d'urgence. SafeHug permet aux secouristes d'accéder immédiatement aux informations vitales du patient, même si celui-ci est inconscient ou incapable de communiquer.</p>
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon paramedics">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Paramédicaux & Ambulanciers</h3>
+                    <p>Accédez instantanément aux antécédents médicaux, allergies et traitements en cours pour une prise en charge optimale.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-heart"></i> Informations vitales visibles</li>
+                        <li><i class="fas fa-alert"></i> Allergies identifiées</li>
+                        <li><i class="fas fa-pills"></i> Traitements connus</li>
+                        <li><i class="fas fa-phone"></i> Contacts d'urgence accessibles</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon firefighters">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3>Pompiers & Sapeurs-Pompiers</h3>
+                    <p>L'information médicale est disponible dès l'arrivée sur les lieux, facilitant les décisions critiques.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-id-card"></i> Identité confirmée</li>
+                        <li><i class="fas fa-problem"></i> Risques identifiés</li>
+                        <li><i class="fas fa-hospital"></i> Établissement de soins connu</li>
+                        <li><i class="fas fa-family"></i> Famille prévenable</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon police">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Forces de l'Ordre</h3>
+                    <p>Identification rapide des personnes impliquées dans un accident de la route.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-user"></i> Identification rapide</li>
+                        <li><i class="fas fa-document"></i> Documents accessibles</li>
+                        <li><i class="fas fa-phone-alt"></i> Contacts disponibles</li>
+                        <li><i class="fas fa-medical-alt"></i> Informations médicales</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon emergency">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <h3>Services d'Urgence Hospitaliers</h3>
+                    <p>Transmission d'informations vitales aux équipes médicales avant l'arrivée du patient.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-chart-line"></i> Préparation en amont</li>
+                        <li><i class="fas fa-problem"></i> Antécédents connus</li>
+                        <li><i class="fas fa-alarm"></i> Réactivité accrue</li>
+                        <li><i class="fas fa-check-double"></i> Soins adaptés</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Emergency Response Flow -->
+            <div class="response-flow">
+                <h3><i class="fas fa-running"></i> Flux d'intervention avec SafeHug</h3>
+                <div class="flow-timeline">
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-car-crash"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Accident</h4>
+                            <p>Intervention sur les lieux</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Repérage</h4>
+                            <p>Localisation de SafeHug sur la ceinture</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Lecture</h4>
+                            <p>Accès aux informations vitales</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Action</h4>
+                            <p>Soins adaptés et informés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section emergency-cta">
+                <h3>Intégrez SafeHug dans vos protocoles d'intervention</h3>
+                <p>Rejoignez les services d'urgence qui font confiance à SafeHug pour sauver des vies.</p>
+                <a href="#contact" class="btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Nous contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambulance Integration Section - NEW -->
+    <section class="ambulance-section" id="ambulance">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Intégration Ambulance & Flottes</h2>
+                <p class="section-subtitle">Solution pour les professionnels de l'urgence</p>
+            </div>
+            
+            <div class="ambulance-showcase">
+                <div class="ambulance-visual">
+                    <div class="ambulance-illustration">
+                        <svg viewBox="0 0 400 250" class="ambulance-svg">
+                            <!-- Ambulance body -->
+                            <rect x="20" y="80" width="280" height="120" rx="10" fill="white" stroke="#1E40AF" stroke-width="3"/>
+                            <rect x="20" y="80" width="280" height="40" rx="10" fill="#1E40AF"/>
+                            
+                            <!-- Windows -->
+                            <rect x="40" y="95" width="60" height="35" rx="3" fill="#DBEAFE"/>
+                            <rect x="220" y="95" width="60" height="35" rx="3" fill="#DBEAFE"/>
+                            
+                            <!-- Cross symbol -->
+                            <rect x="130" y="100" width="40" height="80" rx="5" fill="#DC2626"/>
+                            <rect x="110" y="120" width="80" height="40" rx="5" fill="#DC2626"/>
+                            
+                            <!-- Wheels -->
+                            <circle cx="80" cy="200" r="35" fill="#1E293B"/>
+                            <circle cx="80" cy="200" r="20" fill="#475569"/>
+                            <circle cx="240" cy="200" r="35" fill="#1E293B"/>
+                            <circle cx="240" cy="200" r="20" fill="#475569"/>
+                            
+                            <!-- Siren lights -->
+                            <rect x="130" y="75" width="30" height="10" rx="2" fill="#DC2626"/>
+                            <rect x="170" y="75" width="30" height="10" rx="2" fill="#3B82F6"/>
+                            
+                            <!-- Driver area -->
+                            <rect x="300" y="80" width="80" height="100" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+                            <rect x="310" y="90" width="60" height="40" rx="3" fill="#DBEAFE"/>
+                            
+                            <!-- Checkmark badges -->
+                            <circle cx="50" cy="220" r="25" fill="#059669"/>
+                            <path d="M40 220 L48 228 L60 212" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <circle cx="130" cy="220" r="25" fill="#059669"/>
+                            <path d="M120 220 L128 228 L140 212" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <circle cx="210" cy="220" r="25" fill="#059669"/>
+                            <path d="M200 220 L208 228 L220 212" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="ambulance-features">
+                    <h3>Pourquoi choisir SafeHug pour vos flottes ?</h3>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Gain de temps critique</h4>
+                            <p>Les informations médicales sont accessibles en 3 secondes, contre plusieurs minutes avec un téléphone ou des documents.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Sans connexion nécessaire</h4>
+                            <p>Fonctionne partout, même dans les zones sans réseau mobile ou avec interférences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Universel</h4>
+                            <p>Compatible avec tous les types de ceintures et tous les véhicules de votre flotte.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Certifié</h4>
+                            <p>Conforme aux normes de sécurité et testé par des professionnels du secteur médical.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fleet Options -->
+            <div class="fleet-options">
+                <h3><i class="fas fa-layer-group"></i> Options de déploiement</h3>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4>Véhicules Individuels</h4>
+                        <p>Équipement des véhicules personnels des collaborateurs</p>
+                        <span class="option-price">À partir de 15€/unité</span>
+                    </div>
+                    
+                    <div class="option-card featured">
+                        <div class="option-badge">Populaire</div>
+                        <div class="option-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Flottes Professionnelles</h4>
+                        <p>Pour les entreprises avec parcs automobiles ou motocyclettes</p>
+                        <span class="option-price">À partir de 10€/unité</span>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h4>Services de Secours</h4>
+                        <p>Pour les ambulances, pompiers et services d'urgence</p>
+                        <span class="option-price">Devis personnalisé</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box info">
+                <i class="fas fa-info-circle"></i>
+                <p>SafeHug est un investissement modeste qui peut sauver des vies et réduire les coûts liés aux erreurs médicales.</p>
             </div>
         </div>
     </section>
@@ -821,7 +1193,9 @@
                             <li><a href="#hero">Accueil</a></li>
                             <li><a href="#product">Le Produit</a></li>
                             <li><a href="#specs">Spécifications</a></li>
-                            <li><a href="#avontag">Avontag</a></li>
+                            <li><a href="#how-it-works">Utilisation</a></li>
+                            <li><a href="#emergency-services">Urgence</a></li>
+                            <li><a href="#ambulance">Flottes</a></li>
                             <li><a href="#contact">Commander</a></li>
                         </ul>
                     </div>
@@ -832,6 +1206,8 @@
                             <li><a href="#product">SafeHug Standard</a></li>
                             <li><a href="#avontag">Avontag Premium</a></li>
                             <li><a href="#material">Matériau Premium</a></li>
+                            <li><a href="#ambulance">Solutions Flottes</a></li>
+                            <li><a href="#emergency-services">Services Urgence</a></li>
                         </ul>
                     </div>
                     
