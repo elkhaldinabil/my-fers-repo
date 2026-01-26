@@ -1,7 +1,60 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Mobile Menu Toggle with Overlay
+    // ============================================
+    // DARK MODE TOGGLE
+    // ============================================
+    
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or system preference
+    function getPreferredTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+        return 'light';
+    }
+    
+    // Apply theme
+    function applyTheme(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+    
+    // Initialize theme
+    const currentTheme = getPreferredTheme();
+    applyTheme(currentTheme);
+    
+    // Theme toggle button click handler
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        }, { passive: true });
+    }
+    
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            const savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                // Only auto-switch if user hasn't set a preference
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+    
+    // ============================================
+    // MOBILE MENU
+    // ============================================
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const mobileOverlay = document.getElementById('mobile-overlay');
