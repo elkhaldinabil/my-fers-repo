@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
+  <!-- Background -->
+  <rect width="400" height="500" fill="#F8FAFC"/>
+  
+  <!-- Title -->
+  <text x="200" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1E293B">COMPOSITION DU MATÉRIAU</text>
+  <text x="200" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#64748B">Structure en polycarbonate transparent premium</text>
+  
+  <!-- Outer Layer - UV Protection -->
+  <rect x="50" y="80" width="300" height="80" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="200" y="115" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1E40AF">Couche Protectrice UV</text>
+  <text x="200" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Résistance aux rayons UV • Anti-jaunissement</text>
+  
+  <!-- Arrow down -->
+  <path d="M200 165 L200 185" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 2"/>
+  <polygon points="195,180 200,190 205,180" fill="#3B82F6"/>
+  
+  <!-- Middle Layer - Main Structure -->
+  <rect x="50" y="190" width="300" height="120" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <text x="200" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1E40AF">Structure Principale - Polycarbonate</text>
+  <text x="200" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">94% Transmission lumineuse • Haute clarté optique</text>
+  <rect x="70" y="265" width="260" height="30" rx="5" fill="#BFDBFE"/>
+  <text x="200" y="285" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#1E40AF">100% Plastique Recyclé Post-Consommation</text>
+  
+  <!-- Arrow down -->
+  <path d="M200 315 L200 335" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 2"/>
+  <polygon points="195,330 200,340 205,330" fill="#3B82F6"/>
+  
+  <!-- Inner Layer - Reinforcement -->
+  <rect x="50" y="340" width="300" height="60" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="200" y="375" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#1E40AF">Renforcement Interne</text>
+  <text x="200" y="395" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Résistance aux chocs • Durabilité maximale</text>
+  
+  <!-- Specifications Box -->
+  <rect x="50" y="420" width="300" height="70" rx="8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="200" y="442" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#475569">SPÉCIFICATIONS TECHNIQUES</text>
+  
+  <!-- Specs -->
+  <text x="90" y="462" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#3B82F6" font-weight="700">-40°C</text>
+  <text x="90" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#64748B">Temp. Min</text>
+  
+  <text x="200" y="462" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#3B82F6" font-weight="700">94%</text>
+  <text x="200" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#64748B">Transparence</text>
+  
+  <text x="310" y="462" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#3B82F6" font-weight="700">+85°C</text>
+  <text x="310" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#64748B">Temp. Max</text>
+  
+  <!-- Layer Labels -->
+  <text x="40" y="120" text-anchor="end" font-family="Inter, sans-serif" font-size="10" fill="#3B82F6" font-weight="600">COUCHE 1</text>
+  <text x="40" y="250" text-anchor="end" font-family="Inter, sans-serif" font-size="10" fill="#3B82F6" font-weight="600">COUCHE 2</text>
+  <text x="40" y="370" text-anchor="end" font-family="Inter, sans-serif" font-size="10" fill="#3B82F6" font-weight="600">COUCHE 3</text>
+  
+  <!-- Layer Arrows Left -->
+  <path d="M48 120 L55 120" stroke="#3B82F6" stroke-width="2"/>
+  <path d="M48 250 L55 250" stroke="#3B82F6" stroke-width="2"/>
+  <path d="M48 370 L55 370" stroke="#3B82F6" stroke-width="2"/>
+  
+  <!-- Glow effect at bottom -->
+  <rect x="50" y="485" width="300" height="5" rx="2" fill="url(#glow)"/>
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

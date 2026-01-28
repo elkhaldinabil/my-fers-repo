@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" fill="none">
+  <!-- Background -->
+  <rect width="500" height="300" fill="#F8FAFC"/>
+  
+  <!-- Clock circle -->
+  <circle cx="250" cy="150" r="100" fill="#DBEAFE" stroke="#1E40AF" stroke-width="4"/>
+  
+  <!-- Clock face marks -->
+  <line x1="250" y1="60" x2="250" y2="70" stroke="#1E40AF" stroke-width="3"/>
+  <line x1="250" y1="230" x2="250" y2="240" stroke="#1E40AF" stroke-width="3"/>
+  <line x1="160" y1="150" x2="170" y2="150" stroke="#1E40AF" stroke-width="3"/>
+  <line x1="330" y1="150" x2="340" y2="150" stroke="#1E40AF" stroke-width="3"/>
+  
+  <!-- Hour markers -->
+  <circle cx="250" cy="70" r="4" fill="#1E40AF"/>
+  <circle cx="250" cy="230" r="4" fill="#1E40AF"/>
+  <circle cx="160" cy="150" r="4" fill="#1E40AF"/>
+  <circle cx="340" cy="150" r="4" fill="#1E40AF"/>
+  <circle cx="186" cy="86" r="3" fill="#3B82F6"/>
+  <circle cx="314" cy="86" r="3" fill="#3B82F6"/>
+  <circle cx="186" cy="214" r="3" fill="#3B82F6"/>
+  <circle cx="314" cy="214" r="3" fill="#3B82F6"/>
+  
+  <!-- Golden hour arc -->
+  <path d="M250 150L250 80A70 70 0 0 1 310 115" stroke="#F59E0B" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="280" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#F59E0B">60 min</text>
+  
+  <!-- Clock hands -->
+  <line x1="250" y1="150" x2="250" y2="90" stroke="#DC2626" stroke-width="4" stroke-linecap="round"/>
+  <line x1="250" y1="150" x2="300" y2="150" stroke="#1E40AF" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="250" cy="150" r="8" fill="#1E40AF"/>
+  <circle cx="250" cy="150" r="4" fill="white"/>
+  
+  <!-- Emergency symbols around -->
+  <g transform="translate(80, 60)">
+    <circle cx="0" cy="0" r="25" fill="#DC2626"/>
+    <path d="M0 -15L0 5M-8 -8L8 8M8 -8L-8 8" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#DC2626" font-weight="bold">URGENCE</text>
+  </g>
+  
+  <g transform="translate(420, 60)">
+    <circle cx="0" cy="0" r="25" fill="#059669"/>
+    <path d="M-8 -5L0 -12L8 -5L5 0L8 5L0 12L-8 5L-5 0Z" fill="white"/>
+    <text x="0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#059669" font-weight="bold">SECOURS</text>
+  </g>
+  
+  <g transform="translate(80, 220)">
+    <circle cx="0" cy="0" r="25" fill="#3B82F6"/>
+    <rect x="-12" y="-8" width="24" height="16" rx="2" fill="white"/>
+    <line x1="-4" y1="-4" x2="-4" y2="4" stroke="#3B82F6" stroke-width="2"/>
+    <line x1="0" y1="-4" x2="0" y2="4" stroke="#3B82F6" stroke-width="2"/>
+    <line x1="4" y1="-4" x2="4" y2="4" stroke="#3B82F6" stroke-width="2"/>
+    <text x="0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3B82F6" font-weight="bold">INFO</text>
+  </g>
+  
+  <g transform="translate(420, 220)">
+    <circle cx="0" cy="0" r="25" fill="#1E40AF"/>
+    <path d="M-10 5L-5 10L5 -5L10 -10" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1E40AF" font-weight="bold">VIE</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="250" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E40AF">L'HEURE D'OR - Chaque minute compte</text>
+</svg>

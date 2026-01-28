@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" fill="none">
+  <!-- Background -->
+  <rect width="400" height="350" fill="#F8FAFC"/>
+  
+  <!-- Main product illustration - Seat belt with SafeHug card -->
+  <g transform="translate(50, 30)">
+    <!-- Belt strap -->
+    <path d="M20 20C20 5 35 0 70 0H230C265 0 280 5 280 20V280C280 295 265 300 230 300H70C35 300 20 295 20 280V20Z" fill="#1E40AF"/>
+    
+    <!-- Belt texture -->
+    <path d="M40 10V290" stroke="#3B82F6" stroke-width="3" stroke-dasharray="8 8"/>
+    <path d="M65 10V290" stroke="#3B82F6" stroke-width="3" stroke-dasharray="8 8"/>
+    <path d="M235 10V290" stroke="#3B82F6" stroke-width="3" stroke-dasharray="8 8"/>
+    <path d="M260 10V290" stroke="#3B82F6" stroke-width="3" stroke-dasharray="8 8"/>
+    
+    <!-- Buckle mechanism -->
+    <rect x="100" y="80" width="100" height="120" rx="12" fill="#64748B"/>
+    <rect x="110" y="90" width="80" height="100" rx="8" fill="#94A3B8"/>
+    <rect x="125" y="130" width="50" height="50" rx="8" fill="#1E293B"/>
+    <rect x="130" y="135" width="40" height="40" rx="4" fill="#334155"/>
+    
+    <!-- SafeHug Card holder -->
+    <rect x="50" y="50" width="200" height="60" rx="8" fill="#DC2626"/>
+    <rect x="55" y="55" width="190" height="50" rx="6" fill="white"/>
+    
+    <!-- Card content -->
+    <!-- ID photo placeholder -->
+    <rect x="65" y="62" width="35" height="35" rx="4" fill="#DBEAFE"/>
+    <circle cx="82" cy="75" r="10" fill="#94A3B8"/>
+    <rect x="65" y="90" width="35" height="6" rx="2" fill="#CBD5E1"/>
+    
+    <!-- Medical info lines -->
+    <rect x="110" y="65" width="120" height="8" rx="2" fill="#E2E8F0"/>
+    <rect x="110" y="78" width="90" height="6" rx="2" fill="#CBD5E1"/>
+    <rect x="110" y="88" width="100" height="6" rx="2" fill="#CBD5E1"/>
+    
+    <!-- Heart medical cross icon -->
+    <circle cx="240" cy="80" r="18" fill="#DC2626"/>
+    <rect x="235" y="70" width="10" height="20" rx="1" fill="white"/>
+    <rect x="230" y="75" width="20" height="10" rx="1" fill="white"/>
+  </g>
+  
+  <!-- Labels -->
+  <text x="200" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E40AF">SafeHug - Housse de ceinture avec carte d'urgence</text>
+  
+  <!-- Feature indicators -->
+  <g transform="translate(320, 100)">
+    <circle cx="0" cy="0" r="25" fill="#059669"/>
+    <path d="M-8 -2L-2 8L10 -10" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#059669" font-weight="bold">CARTE</text>
+    <text x="0" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#059669" font-weight="bold">INCLUSE</text>
+  </g>
+  
+  <g transform="translate(30, 150)">
+    <circle cx="0" cy="0" r="25" fill="#F59E0B"/>
+    <path d="M-10 0L0 10L10 -10" stroke="white" stroke-width="3" fill="none"/>
+    <text x="0" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">VISIBLE</text>
+    <text x="0" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">TOUJOURS</text>
+  </g>
+</svg>

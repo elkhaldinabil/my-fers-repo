@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHug - La housse de ceinture avec carte d'informations vitales</title>
+    <meta name="description" content="SafeHug, la housse de ceinture de sécurité avec carte nominative d'informations vitales. Protection, innovation et qualité premium.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="LOGO.jpg" alt="SafeHug Logo" class="logo-image">
+                <h2>SafeHug</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#hero" class="nav-link active" data-i18n="nav.accueil">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#product" class="nav-link" data-i18n="nav.produit">Le Produit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#specs" class="nav-link" data-i18n="nav.specs">Spécifications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link" data-i18n="nav.utilisation">Utilisation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#emergency-services" class="nav-link" data-i18n="nav.urgence">Urgence</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ambulance" class="nav-link" data-i18n="nav.flottes">Flottes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#avontag" class="nav-link" data-i18n="nav.avantage">Avontag</a>
+                </li>
+
+                <!-- Mobile-only CTA -->
+                <li class="nav-item mobile-cta-only">
+                    <a href="#contact" class="btn-aluminum" data-i18n="nav.commander">
+                        <i class="fas fa-shopping-cart"></i>
+                        Commander
+                    </a>
+                </li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Basculer le thème sombre">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="fr" onclick="changeLanguage('fr')" aria-label="Passer en français">FR</button>
+                <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')" aria-label="Switch to English">EN</button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" role="banner">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-tagline">
+                    <span class="tag-item"><i class="fas fa-shield-alt"></i> Protection</span>
+                    <span class="tag-item"><i class="fas fa-id-card"></i> Carte d'identité</span>
+                    <span class="tag-item"><i class="fas fa-heartbeat"></i> Informations vitales</span>
+                </div>
+                <h1 class="hero-title">La housse de ceinture de sécurité avec carte nominative d'informations vitales</h1>
+                <p class="hero-subtitle">Un produit innovant pour votre sécurité au quotidien</p>
+                <p class="hero-description">SafeHug transforme votre ceinture de sécurité en un outil de protection intelligent avec une carte intégrée contenant vos informations essentielles.</p>
+                <div class="hero-actions">
+                    <a href="#product" class="btn-primary" data-i18n="hero.cta">Découvrir le produit</a>
+                    <a href="#contact" class="btn-secondary" data-i18n="hero.secondary">Commander maintenant</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="product-showcase">
+                    <div class="product-card">
+                        <img src="HERO.jpg" alt="SafeHug Produit" class="product-image">
+                        <div class="product-badge">Nouveau</div>
+                    </div>
+                    <div class="product-features">
+                        <div class="feature-pill">
+                            <i class="fas fa-check-circle"></i> Facile à utiliser
+                        </div>
+                        <div class="feature-pill">
+                            <i class="fas fa-eye"></i> Visible et accessible
+                        </div>
+                        <div class="feature-pill">
+                            <i class="fas fa-durability"></i> Résistant et durable
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll pour découvrir</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+
+    <!-- Product Section -->
+    <section class="product-section" id="product">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title" data-i18n="product.titre">Le Produit SafeHug</h2>
+                <p class="section-subtitle">Innovation et protection dans un seul produit</p>
+            </div>
+            
+            <div class="product-showcase">
+                <div class="product-display">
+                    <div class="product-display-card">
+                        <img src="10.jpg" alt="SafeHug Produit Principal">
+                        <div class="product-overlay">
+                            <span>Carte d'informations vitales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Carte Intégrée</h4>
+                            <p>Emplacement pratique pour votre carte d'informations personnelles</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Visible Immédiatement</h4>
+                            <p>Accès direct et immédiat à l'information en cas de besoin</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Positionné au Plus Près</h4>
+                            <p>Emplacement logique sur votre ceinture de sécurité</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Protection Optimale</h4>
+                            <p>Matériau résistant pour protéger vos informations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Product Images Gallery -->
+            <div class="product-gallery">
+                <div class="gallery-item">
+                    <img src="7.jpg" alt="Avontag Premium - Vue détaillée">
+                    <div class="gallery-caption">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Avontag Premium</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/seatbelt-hug.svg" alt="SafeHug sur ceinture de sécurité">
+                    <div class="gallery-caption">
+                        <i class="fas fa-car"></i>
+                        <span>Installation Facile</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1.jpg" alt="SafeHug en situation">
+                    <div class="gallery-caption">
+                        <i class="fas fa-camera"></i>
+                        <span>En Situation</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/safehug-product.svg" alt="Composition du produit">
+                    <div class="gallery-caption">
+                        <i class="fas fa-cogs"></i>
+                        <span>Composition</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-steps">
+                <img src="images/how-it-works.svg" alt="Comment utiliser SafeHug">
+            </div>
+            
+            <div class="highlight-box primary">
+                <i class="fas fa-star"></i>
+                <p>SafeHug rend vos informations essentielles accessibles au bon moment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="specs-section" id="specs">
+        <!-- Decorative Elements -->
+        <div class="spec-decoration top-left">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="spec-decoration bottom-right">
+            <i class="fas fa-cogs"></i>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title" data-i18n="specs.titre">Spécifications Techniques</h2>
+                <p class="section-subtitle">Détails et caractéristiques du produit</p>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Dimensions</h3>
+                    <ul class="spec-list">
+                        <li>Longueur: 25 cm</li>
+                        <li>Largeur: 8 cm</li>
+                        <li>Épaisseur: 2 mm</li>
+                    </ul>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>Poids</h3>
+                    <ul class="spec-list">
+                        <li>Poids total: 45g</li>
+                        <li>Léger et pratique</li>
+                        <li>Sans encombrer</li>
+                    </ul>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3>Résistance Thermique</h3>
+                    <ul class="spec-list">
+                        <li>Température min: -40°C</li>
+                        <li>Température max: +85°C</li>
+                        <li>Idéal pour habitacle</li>
+                    </ul>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-durability"></i>
+                    </div>
+                    <h3>Durabilité</h3>
+                    <ul class="spec-list">
+                        <li>Matériau recyclable</li>
+                        <li>Résistant aux UV</li>
+                        <li>Longue durée de vie</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="specs-details">
+                <h3><i class="fas fa-info-circle"></i> Informations complémentaires</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Compatibilité</h4>
+                        <p>Compatible avec la plupart des ceintures de sécurité automobiles standard.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Installation</h4>
+                        <p>Glissez simplement la housse sur votre ceinture. Mise en place en quelques secondes.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Entretien</h4>
+                        <p>Nettoyez avec un chiffon doux et humide. Pas de produits chimiques agressifs.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Sécurité</h4>
+                        <p>Ne compromet pas le fonctionnement de votre ceinture de sécurité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section - Enhanced Design -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title" data-i18n="how_it_works.titre">Comment Utiliser SafeHug</h2>
+                <p class="section-subtitle" data-i18n="how_it_works.sous_titre">Simple et pratique en 3 étapes</p>
+            </div>
+            
+            <!-- Enhanced Steps Timeline -->
+            <div class="enhanced-steps">
+                <div class="step-timeline">
+                    <div class="timeline-line"></div>
+                </div>
+                
+                <div class="enhanced-step-card" data-step="1">
+                    <div class="step-visual">
+                        <div class="step-icon-circle">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="step-illustration">
+                            <svg viewBox="0 0 100 70" class="step-svg">
+                                <rect x="10" y="10" width="80" height="50" rx="4" fill="#1E40AF"/>
+                                <rect x="15" y="15" width="30" height="25" rx="2" fill="white"/>
+                                <circle cx="30" cy="27" r="8" fill="#DBEAFE"/>
+                                <rect x="15" y="45" width="40" height="4" rx="1" fill="white"/>
+                                <rect x="15" y="52" width="30" height="3" rx="1" fill="#DBEAFE"/>
+                                <rect x="55" y="20" width="30" height="20" rx="2" fill="#3B82F6"/>
+                                <path d="M60 25 L65 35 L75 25" stroke="white" stroke-width="2" fill="none"/>
+                                <rect x="60" y="45" width="25" height="3" rx="1" fill="#DBEAFE"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number-badge">1</div>
+                        <h3 data-i18n="how_it_works.step1.titre">Insérez votre carte</h3>
+                        <p>Glissez votre carte d'informations personnelles dans la housse dédiée avec fenêtre transparente.</p>
+                        <ul class="step-features">
+                            <li><i class="fas fa-check"></i> Carte bien positionnée</li>
+                            <li><i class="fas fa-check"></i> Lisibilité optimale</li>
+                            <li><i class="fas fa-check"></i> Protection maximale</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="enhanced-step-card" data-step="2">
+                    <div class="step-visual">
+                        <div class="step-icon-circle">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="step-illustration">
+                            <svg viewBox="0 0 100 70" class="step-svg">
+                                <rect x="15" y="15" width="70" height="40" rx="4" fill="#64748B"/>
+                                <rect x="20" y="20" width="60" height="20" rx="2" fill="#94A3B8"/>
+                                <circle cx="30" cy="45" r="10" fill="#1E293B"/>
+                                <circle cx="70" cy="45" r="10" fill="#1E293B"/>
+                                <circle cx="30" cy="45" r="5" fill="#475569"/>
+                                <circle cx="70" cy="45" r="5" fill="#475569"/>
+                                <!-- Belt strap -->
+                                <path d="M10 25 Q30 10 50 25 T90 25" stroke="#1E40AF" stroke-width="8" fill="none"/>
+                                <!-- SafeHug on belt -->
+                                <rect x="35" y="18" width="30" height="20" rx="3" fill="#DC2626"/>
+                                <rect x="37" y="20" width="26" height="16" rx="2" fill="white"/>
+                                <rect x="42" y="23" width="8" height="10" rx="1" fill="#3B82F6"/>
+                                <rect x="52" y="23" width="8" height="10" rx="1" fill="#3B82F6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number-badge">2</div>
+                        <h3 data-i18n="how_it_works.step2.titre">Installez sur la ceinture</h3>
+                        <p>Glissez la housse SafeHug sur votre ceinture de sécurité. Elle s'adapte parfaitement à tous les types de ceintures.</p>
+                        <ul class="step-features">
+                            <li><i class="fas fa-check"></i> Installation rapide</li>
+                            <li><i class="fas fa-check"></i> Fixation sécurisée</li>
+                            <li><i class="fas fa-check"></i> Accès immédiat</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="enhanced-step-card" data-step="3">
+                    <div class="step-visual">
+                        <div class="step-icon-circle">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="step-illustration">
+                            <svg viewBox="0 0 100 70" class="step-svg">
+                                <!-- Heart with medical cross -->
+                                <path d="M50 65 C20 45 10 30 10 20 C10 8 25 0 40 5 C45 7 48 12 50 15 C52 12 55 7 60 5 C75 0 90 8 90 20 C90 30 80 45 50 65Z" fill="#DC2626"/>
+                                <rect x="45" y="20" width="10" height="25" rx="2" fill="white"/>
+                                <rect x="37" y="28" width="26" height="10" rx="2" fill="white"/>
+                                <!-- Checkmark -->
+                                <circle cx="80" cy="55" r="15" fill="#059669"/>
+                                <path d="M70 55 L77 62 L90 48" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number-badge">3</div>
+                        <h3 data-i18n="how_it_works.step3.titre">C'est prêt !</h3>
+                        <p>Vos informations sont maintenant accessibles instantanément. En cas d'urgence, les secours peuvent vous identifier et connaître vos informations vitales.</p>
+                        <ul class="step-features">
+                            <li><i class="fas fa-check"></i> Accessible 24/7</li>
+                            <li><i class="fas fa-check"></i> Sans technologie</li>
+                            <li><i class="fas fa-check"></i> Fiabilité à 100%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Setup Info -->
+            <div class="quick-setup">
+                <div class="setup-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="setup-content">
+                    <h4 data-i18n="how_it_works.quick_setup">Configuration en moins de 30 secondes</h4>
+                    <p>Vous n'avez besoin d'aucun outil, aucune application, aucune connexion internet. SafeHug fonctionne immédiatement.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box success">
+                <i class="fas fa-check-circle"></i>
+                <p>En quelques secondes, votre protection est activée et vos informations sont accessibles aux secours en cas de besoin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Services Section - NEW -->
+    <section class="emergency-services-section" id="emergency-services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number emergency">04</span>
+                <h2 class="section-title" data-i18n="emergency.titre">SafeHug pour les Services d'Urgence</h2>
+                <p class="section-subtitle" data-i18n="emergency.sous_titre">Un outil indispensable pour les secouristes</p>
+            </div>
+            
+            <div class="emergency-intro">
+                <div class="emergency-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <div class="emergency-text">
+                    <p>Chaque seconde compte lors d'une intervention d'urgence. SafeHug permet aux secouristes d'accéder immédiatement aux informations vitales du patient, même si celui-ci est inconscient ou incapable de communiquer.</p>
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon paramedics">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Paramédicaux & Ambulanciers</h3>
+                    <p>Accédez instantanément aux antécédents médicaux, allergies et traitements en cours pour une prise en charge optimale.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-heart"></i> Informations vitales visibles</li>
+                        <li><i class="fas fa-alert"></i> Allergies identifiées</li>
+                        <li><i class="fas fa-pills"></i> Traitements connus</li>
+                        <li><i class="fas fa-phone"></i> Contacts d'urgence accessibles</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon firefighters">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3>Pompiers & Sapeurs-Pompiers</h3>
+                    <p>L'information médicale est disponible dès l'arrivée sur les lieux, facilitant les décisions critiques.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-id-card"></i> Identité confirmée</li>
+                        <li><i class="fas fa-problem"></i> Risques identifiés</li>
+                        <li><i class="fas fa-hospital"></i> Établissement de soins connu</li>
+                        <li><i class="fas fa-family"></i> Famille prévenable</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon police">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Forces de l'Ordre</h3>
+                    <p>Identification rapide des personnes impliquées dans un accident de la route.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-user"></i> Identification rapide</li>
+                        <li><i class="fas fa-document"></i> Documents accessibles</li>
+                        <li><i class="fas fa-phone-alt"></i> Contacts disponibles</li>
+                        <li><i class="fas fa-medical-alt"></i> Informations médicales</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon emergency">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <h3>Services d'Urgence Hospitaliers</h3>
+                    <p>Transmission d'informations vitales aux équipes médicales avant l'arrivée du patient.</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-chart-line"></i> Préparation en amont</li>
+                        <li><i class="fas fa-problem"></i> Antécédents connus</li>
+                        <li><i class="fas fa-alarm"></i> Réactivité accrue</li>
+                        <li><i class="fas fa-check-double"></i> Soins adaptés</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Emergency Response Flow -->
+            <div class="response-flow">
+                <h3><i class="fas fa-running"></i> Flux d'intervention avec SafeHug</h3>
+                <div class="flow-timeline">
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-car-crash"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Accident</h4>
+                            <p>Intervention sur les lieux</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Repérage</h4>
+                            <p>Localisation de SafeHug sur la ceinture</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Lecture</h4>
+                            <p>Accès aux informations vitales</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Action</h4>
+                            <p>Soins adaptés et informés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section emergency-cta">
+                <h3>Intégrez SafeHug dans vos protocoles d'intervention</h3>
+                <p>Rejoignez les services d'urgence qui font confiance à SafeHug pour sauver des vies.</p>
+                <a href="#contact" class="btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Nous contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambulance Integration Section - NEW -->
+    <section class="ambulance-section" id="ambulance">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title" data-i18n="ambulance.titre">Intégration Ambulance & Flottes</h2>
+                <p class="section-subtitle" data-i18n="ambulance.sous_titre">Solution pour les professionnels de l'urgence</p>
+            </div>
+            
+            <div class="ambulance-showcase">
+                <div class="ambulance-visual">
+                    <div class="ambulance-illustration">
+                        <svg viewBox="0 0 400 250" class="ambulance-svg">
+                            <!-- Ambulance body -->
+                            <rect x="20" y="80" width="280" height="120" rx="10" fill="white" stroke="#1E40AF" stroke-width="3"/>
+                            <rect x="20" y="80" width="280" height="40" rx="10" fill="#1E40AF"/>
+                            
+                            <!-- Windows -->
+                            <rect x="40" y="95" width="60" height="35" rx="3" fill="#DBEAFE"/>
+                            <rect x="220" y="95" width="60" height="35" rx="3" fill="#DBEAFE"/>
+                            
+                            <!-- Cross symbol -->
+                            <rect x="130" y="100" width="40" height="80" rx="5" fill="#DC2626"/>
+                            <rect x="110" y="120" width="80" height="40" rx="5" fill="#DC2626"/>
+                            
+                            <!-- Wheels -->
+                            <circle cx="80" cy="200" r="35" fill="#1E293B"/>
+                            <circle cx="80" cy="200" r="20" fill="#475569"/>
+                            <circle cx="240" cy="200" r="35" fill="#1E293B"/>
+                            <circle cx="240" cy="200" r="20" fill="#475569"/>
+                            
+                            <!-- Siren lights -->
+                            <rect x="130" y="75" width="30" height="10" rx="2" fill="#DC2626"/>
+                            <rect x="170" y="75" width="30" height="10" rx="2" fill="#3B82F6"/>
+                            
+                            <!-- Driver area -->
+                            <rect x="300" y="80" width="80" height="100" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+                            <rect x="310" y="90" width="60" height="40" rx="3" fill="#DBEAFE"/>
+                            
+                            <!-- Checkmark badges -->
+                            <circle cx="50" cy="220" r="25" fill="#059669"/>
+                            <path d="M40 220 L48 228 L60 212" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <circle cx="130" cy="220" r="25" fill="#059669"/>
+                            <path d="M120 220 L128 228 L140 212" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <circle cx="210" cy="220" r="25" fill="#059669"/>
+                            <path d="M200 220 L208 228 L220 212" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="ambulance-features">
+                    <h3>Pourquoi choisir SafeHug pour vos flottes ?</h3>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Gain de temps critique</h4>
+                            <p>Les informations médicales sont accessibles en 3 secondes, contre plusieurs minutes avec un téléphone ou des documents.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Sans connexion nécessaire</h4>
+                            <p>Fonctionne partout, même dans les zones sans réseau mobile ou avec interférences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Universel</h4>
+                            <p>Compatible avec tous les types de ceintures et tous les véhicules de votre flotte.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fleet-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Certifié</h4>
+                            <p>Conforme aux normes de sécurité et testé par des professionnels du secteur médical.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fleet Options -->
+            <div class="fleet-options">
+                <h3><i class="fas fa-layer-group"></i> Options de déploiement</h3>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4>Véhicules Individuels</h4>
+                        <p>Équipement des véhicules personnels des collaborateurs</p>
+                        <span class="option-price">À partir de 15€/unité</span>
+                    </div>
+                    
+                    <div class="option-card featured">
+                        <div class="option-badge">Populaire</div>
+                        <div class="option-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Flottes Professionnelles</h4>
+                        <p>Pour les entreprises avec parcs automobiles ou motocyclettes</p>
+                        <span class="option-price">À partir de 10€/unité</span>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h4>Services de Secours</h4>
+                        <p>Pour les ambulances, pompiers et services d'urgence</p>
+                        <span class="option-price">Devis personnalisé</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box info">
+                <i class="fas fa-info-circle"></i>
+                <p>SafeHug est un investissement modeste qui peut sauver des vies et réduire les coûts liés aux erreurs médicales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avontag Section - Premium Transparent Features -->
+    <section class="avontag-section" id="avontag">
+        <div class="container">
+            <div class="avontag-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title" data-i18n="avantages.titre">Avontag - Premium</h2>
+                <p class="section-subtitle">La technologie transparente pour une protection optimale</p>
+            </div>
+            
+            <div class="avontag-showcase">
+                <div class="avontag-product">
+                    <div class="avontag-product-card">
+                        <img src="7.jpg" alt="Avontag Produit Premium" class="avontag-image">
+                        <div class="avontag-badge">Premium</div>
+                    </div>
+                </div>
+                
+                <div class="avontag-features">
+                    <div class="avontag-feature">
+                        <div class="avontag-feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="avontag-feature-content">
+                            <h4>Plastique Transparent Premium</h4>
+                            <p>Finition transparente de haute qualité pour une durabilité exceptionnelle et une visibilité optimale</p>
+                        </div>
+                    </div>
+                    <div class="avontag-feature">
+                        <div class="avontag-feature-icon">
+                            <i class="fas fa-temperature-high"></i>
+                        </div>
+                        <div class="avontag-feature-content">
+                            <h4>Résistance Thermique</h4>
+                            <p>Conçu pour résister aux températures extrêmes de l'habitacle automobile</p>
+                        </div>
+                    </div>
+                    <div class="avontag-feature">
+                        <div class="avontag-feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="avontag-feature-content">
+                            <h4>Grande Transparence</h4>
+                            <p>Matériau crystal-clear permettant une lecture facile des informations</p>
+                        </div>
+                    </div>
+                    <div class="avontag-feature">
+                        <div class="avontag-feature-icon">
+                            <i class="fas fa-weight-hanging"></i>
+                        </div>
+                        <div class="avontag-feature-content">
+                            <h4>Léger et Robuste</h4>
+                            <p>Structure ultra-légère avec une résistance aux chocs renforcée</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="avontag-specs">
+                <div class="avontag-spec">
+                    <div class="avontag-spec-value">100%</div>
+                    <div class="avontag-spec-label">Plastique Recyclé</div>
+                </div>
+                <div class="avontag-spec">
+                    <div class="avontag-spec-value">-40°C</div>
+                    <div class="avontag-spec-label">Résistance Froid</div>
+                </div>
+                <div class="avontag-spec">
+                    <div class="avontag-spec-value">+85°C</div>
+                    <div class="avontag-spec-label">Résistance Chaud</div>
+                </div>
+            </div>
+            
+            <!-- Enhanced Material Details -->
+            <div class="avontag-material-detail">
+                <h3><i class="fas fa-layer-group"></i> Composition du Matériau Transparent Premium</h3>
+                <div class="material-details-grid">
+                    <div class="material-detail-item">
+                        <div class="material-detail-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="material-detail-content">
+                            <h4>Protection UV Intégrée</h4>
+                            <p>Stabilisation UV avancée anti-jaunissement pour une durabilité accrue</p>
+                        </div>
+                    </div>
+                    <div class="material-detail-item">
+                        <div class="material-detail-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="material-detail-content">
+                            <h4>Clarté Optique Exceptionnelle</h4>
+                            <p>Transmission lumineuse de 94% pour une lecture parfaite des données</p>
+                        </div>
+                    </div>
+                    <div class="material-detail-item">
+                        <div class="material-detail-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="material-detail-content">
+                            <h4>Polycarbonate Recyclé</h4>
+                            <p>100% plastique post-consommation, recyclable à l'infini</p>
+                        </div>
+                    </div>
+                    <div class="material-detail-item">
+                        <div class="material-detail-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="material-detail-content">
+                            <h4>Résistance aux Chocs</h4>
+                            <p>Structure renforcée absorbant les impacts pour protéger les données</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="avontag-cta">
+                <a href="#contact" class="btn-aluminum">
+                    <i class="fas fa-shopping-cart"></i>
+                    Commander Avontag
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matériau Transparent Premium Section -->
+    <section class="material-section" id="material">
+        <div class="container">
+            <div class="material-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title" data-i18n="material.titre">Matériau Transparent Premium</h2>
+                <p class="section-subtitle">Une technologie de pointe pour une protection maximale</p>
+            </div>
+            
+            <div class="material-content">
+                <div class="material-visual">
+                    <div class="material-visual-card">
+                        <div class="material-badge">Premium+</div>
+                        <img src="images/material-composition.svg" alt="Composition du matériau transparent" class="material-diagram">
+                    </div>
+                </div>
+                
+                <div class="material-info">
+                    <p class="material-intro">
+                        Notre plastique transparent premium est une formulation exclusive de polycarbonate de haute performance, conçue spécifiquement pour les applications de sécurité. Ce matériau offre une combinaison unique de clarté optique, de résistance mécanique et de durabilité environnementale.
+                    </p>
+                    
+                    <div class="material-composition">
+                        <h3><i class="fas fa-flask"></i> Composition et Fabrication</h3>
+                        <div class="composition-list">
+                            <div class="composition-item">
+                                <div class="composition-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <span class="composition-text">Polycarbonate haute densité (PC)</span>
+                            </div>
+                            <div class="composition-item">
+                                <div class="composition-icon">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <span class="composition-text">Stabilisants UV HALS (Hindered Amine Light Stabilizers)</span>
+                            </div>
+                            <div class="composition-item">
+                                <div class="composition-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <span class="composition-text">100% Plastique Recyclé Post-Consommation</span>
+                            </div>
+                            <div class="composition-item">
+                                <div class="composition-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <span class="composition-text">Sans BPA ni phtalates</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="material-properties">
+                        <div class="property-card">
+                            <div class="property-icon">
+                                <i class="fas fa-temperature-low"></i>
+                            </div>
+                            <h4>Basse Température</h4>
+                            <p>Flexible jusqu'à -40°C</p>
+                        </div>
+                        <div class="property-card">
+                            <div class="property-icon">
+                                <i class="fas fa-temperature-high"></i>
+                            </div>
+                            <h4>Haute Température</h4>
+                            <p>Stable jusqu'à +85°C</p>
+                        </div>
+                        <div class="property-card">
+                            <div class="property-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4>Clarté Optique</h4>
+                            <p>Transmission 94%</p>
+                        </div>
+                        <div class="property-card">
+                            <div class="property-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Résistance Chocs</h4>
+                            <p>IK10 certifié</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Specifications -->
+            <div class="material-specs-section">
+                <h3><i class="fas fa-clipboard-list"></i> Spécifications Techniques</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-value">94%</div>
+                        <div class="spec-label">Transmission Lumineuse</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">-40°C / +85°C</div>
+                        <div class="spec-label">Plage Thermique</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">1.20 g/cm³</div>
+                        <div class="spec-label">Densité</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">IK10</div>
+                        <div class="spec-label">Résistance Choc</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Environmental Benefits -->
+            <div class="environmental-section">
+                <h3><i class="fas fa-leaf"></i> Engagement Environnemental</h3>
+                <div class="eco-grid">
+                    <div class="eco-card">
+                        <div class="eco-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h4>100% Recyclable</h4>
+                        <p>Le matériau peut être indéfiniment réutilisé sans perte de qualité</p>
+                    </div>
+                    <div class="eco-card">
+                        <div class="eco-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h4>Carbone Réduit</h4>
+                        <p>60% d'émissions CO₂ en moins grâce au recyclage</p>
+                    </div>
+                    <div class="eco-card">
+                        <div class="eco-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>Certifié REACH</h4>
+                        <p>Conforme aux normes européennes les plus strictes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="certifications-section">
+                <h3><i class="fas fa-award"></i> Certifications et Conformités</h3>
+                <div class="certs-grid">
+                    <div class="cert-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>ISO 9001</span>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>ISO 14001</span>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>REACH</span>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>RoHS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title" data-i18n="faq.titre">Questions Fréquentes</h2>
+                <p class="section-subtitle" data-i18n="faq.sous_titre">Tout ce que vous devez savoir sur SafeHug</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <span class="faq-card-number">01</span>
+                    <div class="faq-question">
+                        <i class="fas fa-tint"></i>
+                        <h3>Le produit est-il waterproof ?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, SafeHug est conçu pour résister à l'humidité légère. Cependant, nous recommandons de ne pas l'immerger complètement dans l'eau pendant une période prolongée.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card">
+                    <span class="faq-card-number">02</span>
+                    <div class="faq-question">
+                        <i class="fas fa-clock"></i>
+                        <h3>Quelle est la durée de vie du produit ?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Dans des conditions normales d'utilisation, SafeHug a une durée de vie de plusieurs années. Le matériau résiste aux UV et aux températures extrêmes de l'habitacle.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card">
+                    <span class="faq-card-number">03</span>
+                    <div class="faq-question">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Comment commander SafeHug ?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vous pouvez commander directement via notre page de contact ou en nous envoyant un email. Nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card">
+                    <span class="faq-card-number">04</span>
+                    <div class="faq-question">
+                        <i class="fas fa-car"></i>
+                        <h3>Le produit est-il compatible avec toutes les ceintures ?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>SafeHug est conçu pour être compatible avec la plupart des ceintures de sécurité automobiles standard. Si vous avez un doute, n'hésitez pas à nous contacter.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card">
+                    <span class="faq-card-number">05</span>
+                    <div class="faq-question">
+                        <i class="fas fa-broom"></i>
+                        <h3>Comment entretenir mon SafeHug ?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nettoyez simplement avec un chiffon doux et humide. Évitez les produits chimiques agressifs et les nettoyants abrasifs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-card">
+                    <span class="faq-card-number">06</span>
+                    <div class="faq-question">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Où est fabriqués SafeHug ?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>SafeHug est conçu avec passion, avec un engagement fort pour la qualité et l'environnement. Notre processus de fabrication respecte les normes européennes les plus strictes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2 class="section-title" data-i18n="contact.titre">Commander SafeHug</h2>
+                <p class="section-subtitle" data-i18n="contact.sous_titre">Contactez-nous pour passer commande</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>contact@safehugin.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Téléphone</h4>
+                        <p>06 00 00 00 00</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Adresse</h4>
+                        <p>Casablanca, Maroc</p>
+                    </div>
+                    <div class="contact-illustration">
+                        <img src="images/contact-us.svg" alt="Contactez-nous">
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Nom complet</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" required>
+                            <label for="phone">Téléphone</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="product" required>
+                                <option value="">Sélectionnez un produit</option>
+                                <option value="safhug">SafeHug Standard</option>
+                                <option value="avontag">Avontag Premium</option>
+                            </select>
+                            <label for="product">Produit</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="quantity" required>
+                                <option value="">Sélectionnez la quantité</option>
+                                <option value="1">1 unité</option>
+                                <option value="2">2 unités</option>
+                                <option value="5">5 unités</option>
+                                <option value="10">10 unités</option>
+                                <option value="other">Autre quantité</option>
+                            </select>
+                            <label for="quantity">Quantité</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" required></textarea>
+                            <label for="message">Votre message</label>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Commander</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-title">SafeHug</h3>
+                    <p>SafeHug, la housse de ceinture de sécurité avec carte nominative d'informations vitales. Innovation, protection et qualité premium.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#hero">Accueil</a></li>
+                            <li><a href="#product">Le Produit</a></li>
+                            <li><a href="#specs">Spécifications</a></li>
+                            <li><a href="#how-it-works">Utilisation</a></li>
+                            <li><a href="#emergency-services">Urgence</a></li>
+                            <li><a href="#ambulance">Flottes</a></li>
+                            <li><a href="#contact">Commander</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Produits</h4>
+                        <ul>
+                            <li><a href="#product">SafeHug Standard</a></li>
+                            <li><a href="#avontag">Avontag Premium</a></li>
+                            <li><a href="#material">Matériau Premium</a></li>
+                            <li><a href="#ambulance">Solutions Flottes</a></li>
+                            <li><a href="#emergency-services">Services Urgence</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Légal</h4>
+                        <ul>
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">Politique de confidentialité</a></li>
+                            <li><a href="#">CGV</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 SafeHug. Tous droits réservés.</p>
+                <p class="footer-tagline">Innovation et protection pour votre sécurité.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+</body>
+</html>

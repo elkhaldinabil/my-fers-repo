@@ -1,0 +1,646 @@
+<parameter name="content">#!/usr/bin/env python3
+"""
+SafeHug PowerPoint Generator
+Creates a professional 11-slide presentation in French
+"""
+
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.text import PP_ALIGN
+from pptx.enum.shapes import MSO_SHAPE
+import os
+
+def create_safehug_presentation():
+    """Create the SafeHug PowerPoint presentation"""
+    
+    prs = Presentation()
+    prs.slide_width = Inches(13.333)
+    prs.slide_height = Inches(7.5)
+    
+    # Define colors
+    BLUE = RGBColor(30, 64, 175)
+    ORANGE = RGBColor(234, 88, 12)
+    GREEN = RGBColor(5, 150, 105)
+    RED = RGBColor(220, 38, 38)
+    WHITE = RGBColor(255, 255, 255)
+    DARK_GRAY = RGBColor(30, 41, 59)
+    LIGHT_BLUE = RGBColor(219, 234, 254)
+    
+    # SLIDE 1 - Title Slide
+    slide1 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    # Background
+    bg_shape = slide1.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, prs.slide_width, prs.slide_height)
+    bg_shape.fill.solid()
+    bg_shape.fill.fore_color.rgb = BLUE
+    bg_shape.line.fill.background()
+    
+    # Logo/Title
+    title_box = slide1.shapes.add_textbox(Inches(0.5), Inches(1.5), Inches(12.333), Inches(1.5))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug"
+    p.font.size = Pt(54)
+    p.font.bold = True
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Tagline
+    tagline_box = slide1.shapes.add_textbox(Inches(0.5), Inches(3), Inches(12.333), Inches(0.6))
+    tf = tagline_box.text_frame
+    p = tf.paragraphs[0]
+    p.text = "Securite - Information vitale - Reduction du risque"
+    p.font.size = Pt(20)
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Subtitle
+    subtitle_box = slide1.shapes.add_textbox(Inches(0.5), Inches(3.8), Inches(12.333), Inches(0.8))
+    tf = subtitle_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "La housse de ceinture de securite avec carte nominative donnees de sante"
+    p.font.size = Pt(24)
+    p.font.bold = True
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Description
+    desc_box = slide1.shapes.add_textbox(Inches(0.5), Inches(4.8), Inches(12.333), Inches(0.6))
+    tf = desc_box.text_frame
+    p = tf.paragraphs[0]
+    p.text = "Un levier de prevention a fort impact assurantiel"
+    p.font.size = Pt(18)
+    p.font.color.rgb = RGBColor(254, 243, 199)
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Value prop
+    value_box = slide1.shapes.add_textbox(Inches(0.5), Inches(5.6), Inches(12.333), Inches(0.7))
+    tf = value_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug transforme un objet du quotidien en outil de protection humaine et financiere."
+    p.font.size = Pt(16)
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # SLIDE 2 - LE CONSTAT ASSURANTIEL
+    slide2 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    # Title
+    title_box = slide2.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    p = tf.paragraphs[0]
+    p.text = "LE CONSTAT ASSURANTIEL"
+    p.font.size = Pt(36)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    # Bullet points
+    bullets = [
+        "- Sinistres corporels graves a forte charge",
+        "- Deces et invalidites lourdes",
+        "- Rentes et couts medicaux long terme",
+        "- Contentieux post-accident"
+    ]
+    
+    bullets_box = slide2.shapes.add_textbox(Inches(0.8), Inches(1.5), Inches(11.5), Inches(3))
+    tf = bullets_box.text_frame
+    tf.word_wrap = True
+    for bullet in bullets:
+        p = tf.add_paragraph()
+        p.text = bullet
+        p.font.size = Pt(20)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(12)
+    
+    # Insight box
+    insight_box = slide2.shapes.add_textbox(Inches(0.5), Inches(4.5), Inches(12.333), Inches(0.7))
+    tf = insight_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Une partie significative de ces couts est liee a la prise en charge initiale, non optimisee faute d'informations."
+    p.font.size = Pt(16)
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Add colored background to insight
+    bg_insight = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(4.5), Inches(12.333), Inches(0.7))
+    bg_insight.fill.solid()
+    bg_insight.fill.fore_color.rgb = LIGHT_BLUE
+    bg_insight.line.color.rgb = BLUE
+    
+    # Key statement
+    key_box = slide2.shapes.add_textbox(Inches(0.5), Inches(5.3), Inches(12.333), Inches(0.7))
+    tf = key_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Le sinistre commence au moment de l'accident, pas a l'hopital."
+    p.font.size = Pt(22)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Red background
+    bg_key = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(5.3), Inches(12.333), Inches(0.7))
+    bg_key.fill.solid()
+    bg_key.fill.fore_color.rgb = RED
+    bg_key.line.fill.background()
+    
+    # SLIDE 3 - LE FACTEUR DETERMINANT
+    slide3 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide3.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "LE FACTEUR DETERMINANT : TEMPS - INFORMATION"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = ORANGE
+    
+    intro_box = slide3.shapes.add_textbox(Inches(0.5), Inches(1.4), Inches(12.333), Inches(0.5))
+    tf = intro_box.text_frame
+    p = tf.paragraphs[0]
+    p.text = "Lors d'un accident grave :"
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.font.color.rgb = DARK_GRAY
+    
+    bullets3 = [
+        "- la victime est souvent inconsciente,",
+        "- Desorientee, incapable de communiquer,",
+        "- ses donnees medicales sont inconnues."
+    ]
+    
+    bullets_box = slide3.shapes.add_textbox(Inches(0.8), Inches(2), Inches(11.5), Inches(1.8))
+    tf = bullets_box.text_frame
+    tf.word_wrap = True
+    for bullet in bullets3:
+        p = tf.add_paragraph()
+        p.text = bullet
+        p.font.size = Pt(18)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(8)
+    
+    # Golden hour box
+    golden_box = slide3.shapes.add_textbox(Inches(0.5), Inches(3.9), Inches(12.333), Inches(0.7))
+    tf = golden_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "La premiere heure « golden hour » conditionne la survie et les sequelles."
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_golden = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(3.9), Inches(12.333), Inches(0.7))
+    bg_golden.fill.solid()
+    bg_golden.fill.fore_color.rgb = ORANGE
+    bg_golden.line.fill.background()
+    
+    # Expert quote
+    quote_box = slide3.shapes.add_textbox(Inches(0.8), Inches(4.7), Inches(11.5), Inches(1.2))
+    tf = quote_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "« Une information fiable, claire et immediatement accessible peut faire gagner des minutes precieuses et eviter des erreurs medicales. »"
+    p.font.size = Pt(16)
+    p.font.italic = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_quote = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(4.7), Inches(11.5), Inches(1.2))
+    bg_quote.fill.solid()
+    bg_quote.fill.fore_color.rgb = RGBColor(254, 243, 199)
+    bg_quote.line.color.rgb = ORANGE
+    
+    # Final statement
+    final_box = slide3.shapes.add_textbox(Inches(0.5), Inches(5.9), Inches(12.333), Inches(0.6))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Sans information fiable, les secours prennent des decisions sous contrainte maximale."
+    p.font.size = Pt(16)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(5.9), Inches(12.333), Inches(0.6))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = RED
+    bg_final.line.fill.background()
+    
+    # SLIDE 4 - CE DONT LES SECOURS ONT BESOIN
+    slide4 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide4.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "CE DONT LES SECOURS ONT BESOIN"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    info_bullets = [
+        "- Identite (pour le suivi medical et legal)",
+        "- Age",
+        "- Pathologies lourdes connues : diabete, epilepsie, troubles cardiaques",
+        "- Traitements critiques : anticoagulants (AVK, Xarelto, Eliquis), insuline",
+        "- Allergies graves : anesthesiques, penicilline",
+        "- Implants medicaux : pacemaker, pompe a insuline, implant cochlaire"
+    ]
+    
+    info_box = slide4.shapes.add_textbox(Inches(0.8), Inches(1.3), Inches(11.5), Inches(3))
+    tf = info_box.text_frame
+    tf.word_wrap = True
+    for bullet in info_bullets:
+        p = tf.add_paragraph()
+        p.text = bullet
+        p.font.size = Pt(14)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(6)
+    
+    # Case studies section
+    case_title = slide4.shapes.add_textbox(Inches(0.5), Inches(4.3), Inches(12.333), Inches(0.5))
+    tf = case_title.text_frame
+    p = tf.paragraphs[0]
+    p.text = "Cas concrets ou l'information change tout"
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.font.color.rgb = ORANGE
+    
+    cases = [
+        "- Une victime inconsciente sous anticoagulants - risque hemorragique majeur",
+        "- Un accidenté avec pacemaker - gestes electriques adaptes, IRM evité",
+        "- Une personne epileptique retrouvee au sol - distinction crise - traumatisme",
+        "- Allergie grave non connue - un medicament peut devenir mortel"
+    ]
+    
+    cases_box = slide4.shapes.add_textbox(Inches(0.8), Inches(4.9), Inches(11.5), Inches(1.5))
+    tf = cases_box.text_frame
+    tf.word_wrap = True
+    for case in cases:
+        p = tf.add_paragraph()
+        p.text = case
+        p.font.size = Pt(12)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(4)
+    
+    # SLIDE 5 - SAFEHUG : LA SOLUTION CONCRETE
+    slide5 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide5.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SAFEHUG : LA SOLUTION CONCRETE"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    intro_box = slide5.shapes.add_textbox(Inches(0.5), Inches(1.3), Inches(12.333), Inches(0.7))
+    tf = intro_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug, housse de ceinture de securite integrant une carte nominative d'informations vitales :"
+    p.font.size = Pt(16)
+    p.alignment = PP_ALIGN.CENTER
+    
+    features = [
+        "- visible immediatement par les secours",
+        "- accessible sans telephone, sans reseau",
+        "- posee au plus pres du conducteur ou passager",
+        "- pensee pour les situations d'urgence reelle"
+    ]
+    
+    features_box = slide5.shapes.add_textbox(Inches(1), Inches(2.2), Inches(11.333), Inches(2.5))
+    tf = features_box.text_frame
+    tf.word_wrap = True
+    for feature in features:
+        p = tf.add_paragraph()
+        p.text = feature
+        p.font.size = Pt(20)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(12)
+    
+    final_box = slide5.shapes.add_textbox(Inches(0.5), Inches(5.2), Inches(12.333), Inches(0.7))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug rend l'information vitale la ou les secours regardent naturellement."
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide5.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(5.2), Inches(12.333), Inches(0.7))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = GREEN
+    bg_final.line.fill.background()
+    
+    # SLIDE 6 - BENEFICES POUR L'ASSURE
+    slide6 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide6.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "BENEFICES POUR L'ASSURE"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    intro_box = slide6.shapes.add_textbox(Inches(0.5), Inches(1.3), Inches(12.333), Inches(0.5))
+    tf = intro_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Avec SafeHug, l'assure beneticie de :"
+    p.font.size = Pt(16)
+    p.alignment = PP_ALIGN.CENTER
+    
+    benefits = [
+        "- une prise en charge medicale plus rapide et plus adaptee",
+        "- une reduction du risque d'erreur medicale",
+        "- une diminution des sequelles potentielles",
+        "- un sentiment de protection et de consideration"
+    ]
+    
+    benefits_box = slide6.shapes.add_textbox(Inches(1), Inches(2), Inches(11.333), Inches(2.5))
+    tf = benefits_box.text_frame
+    tf.word_wrap = True
+    for benefit in benefits:
+        p = tf.add_paragraph()
+        p.text = benefit
+        p.font.size = Pt(20)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(12)
+    
+    final_box = slide6.shapes.add_textbox(Inches(0.5), Inches(5), Inches(12.333), Inches(0.7))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "L'assure n'est plus un numero de contrat, mais une vie mieux protegee."
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide6.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(5), Inches(12.333), Inches(0.7))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = GREEN
+    bg_final.line.fill.background()
+    
+    # SLIDE 7 - BENEFICES DIRECTS POUR L'ASSUREUR
+    slide7 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide7.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "BENEFICES DIRECTS POUR L'ASSUREUR"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    intro_box = slide7.shapes.add_textbox(Inches(0.5), Inches(1.3), Inches(12.333), Inches(0.5))
+    tf = intro_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Pour l'assureur, SafeHug permet :"
+    p.font.size = Pt(16)
+    p.alignment = PP_ALIGN.CENTER
+    
+    insurer_benefits = [
+        "- une reduction de la gravite des sinistres corporels",
+        "- moins de complications medicales",
+        "- moins d'invalidites lourdes",
+        "- une baisse des rentes longue duree",
+        "- une optimisation du cout moyen par sinistre"
+    ]
+    
+    benefits_box = slide7.shapes.add_textbox(Inches(1), Inches(2), Inches(11.333), Inches(2.5))
+    tf = benefits_box.text_frame
+    tf.word_wrap = True
+    for benefit in insurer_benefits:
+        p = tf.add_paragraph()
+        p.text = benefit
+        p.font.size = Pt(18)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(10)
+    
+    final_box = slide7.shapes.add_textbox(Inches(0.5), Inches(5), Inches(12.333), Inches(0.7))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Moins de gravite medicale = moins de charge financiere durable."
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide7.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(5), Inches(12.333), Inches(0.7))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = GREEN
+    bg_final.line.fill.background()
+    
+    # SLIDE 8 - OUTIL DE PREVENTION
+    slide8 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide8.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SAFEHUG : UN OUTIL DE PREVENTION A FORTE VALEUR AJOUTEE"
+    p.font.size = Pt(28)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    prevention = [
+        "- Prevention active, utilisable au moment critique",
+        "- Innovation simple, non intrusive",
+        "- Demarche RSE concrete et visible"
+    ]
+    
+    prev_box = slide8.shapes.add_textbox(Inches(1), Inches(1.8), Inches(11.333), Inches(2))
+    tf = prev_box.text_frame
+    tf.word_wrap = True
+    for item in prevention:
+        p = tf.add_paragraph()
+        p.text = item
+        p.font.size = Pt(22)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(14)
+    
+    final_box = slide8.shapes.add_textbox(Inches(0.5), Inches(4.5), Inches(12.333), Inches(0.8))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug n'est pas un gadget : c'est un outil de prevention operationnelle"
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide8.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(4.5), Inches(12.333), Inches(0.8))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = GREEN
+    bg_final.line.fill.background()
+    
+    # SLIDE 9 - CAS D'USAGE ASSURANTIEL
+    slide9 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide9.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "CAS D'USAGE ASSURANTIEL"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    intro_box = slide9.shapes.add_textbox(Inches(0.5), Inches(1.3), Inches(12.333), Inches(0.5))
+    tf = intro_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug s'integre naturellement dans :"
+    p.font.size = Pt(16)
+    p.alignment = PP_ALIGN.CENTER
+    
+    usecases = [
+        "- Assurance Auto",
+        "- Flottes et vehicules professionnels",
+        "- Assurance Vie - Prevoyance",
+        "- Programmes de prevention et fidelisation"
+    ]
+    
+    uc_box = slide9.shapes.add_textbox(Inches(1), Inches(2), Inches(11.333), Inches(2))
+    tf = uc_box.text_frame
+    tf.word_wrap = True
+    for uc in usecases:
+        p = tf.add_paragraph()
+        p.text = uc
+        p.font.size = Pt(24)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(12)
+    
+    final_box = slide9.shapes.add_textbox(Inches(0.5), Inches(4.8), Inches(12.333), Inches(0.7))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Une solution unique, deployable sur plusieurs lignes de produits."
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide9.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(4.8), Inches(12.333), Inches(0.7))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = BLUE
+    bg_final.line.fill.background()
+    
+    # SLIDE 10 - POSITIONNEMENT STRATEGIQUE
+    slide10 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    title_box = slide10.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.333), Inches(0.8))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "POSITIONNEMENT STRATEGIQUE"
+    p.font.size = Pt(32)
+    p.font.bold = True
+    p.font.color.rgb = BLUE
+    
+    intro_box = slide10.shapes.add_textbox(Inches(0.5), Inches(1.3), Inches(12.333), Inches(0.5))
+    tf = intro_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Avec SafeHug, l'assureur devient :"
+    p.font.size = Pt(16)
+    p.alignment = PP_ALIGN.CENTER
+    
+    positioning = [
+        "- acteur de la prevention",
+        "- partenaire de la survie",
+        "- assureur humain et responsable",
+        "- reference d'innovation utile"
+    ]
+    
+    pos_box = slide10.shapes.add_textbox(Inches(1), Inches(2), Inches(11.333), Inches(2))
+    tf = pos_box.text_frame
+    tf.word_wrap = True
+    for pos in positioning:
+        p = tf.add_paragraph()
+        p.text = pos
+        p.font.size = Pt(22)
+        p.font.color.rgb = DARK_GRAY
+        p.space_after = Pt(12)
+    
+    final_box = slide10.shapes.add_textbox(Inches(0.5), Inches(4.8), Inches(12.333), Inches(0.7))
+    tf = final_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "L'assurance evolue : de la reparation vers la protection active."
+    p.font.size = Pt(18)
+    p.font.bold = True
+    p.alignment = PP_ALIGN.CENTER
+    
+    bg_final = slide10.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.5), Inches(4.8), Inches(12.333), Inches(0.7))
+    bg_final.fill.solid()
+    bg_final.fill.fore_color.rgb = GREEN
+    bg_final.line.fill.background()
+    
+    # SLIDE 11 - CONCLUSION
+    slide11 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    # Background
+    bg_shape = slide11.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, prs.slide_width, prs.slide_height)
+    bg_shape.fill.solid()
+    bg_shape.fill.fore_color.rgb = BLUE
+    bg_shape.line.fill.background()
+    
+    # Title
+    title_box = slide11.shapes.add_textbox(Inches(0.5), Inches(1), Inches(12.333), Inches(1))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "SafeHug"
+    p.font.size = Pt(48)
+    p.font.bold = True
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Main text
+    main_text_box = slide11.shapes.add_textbox(Inches(0.5), Inches(2.2), Inches(12.333), Inches(1.5))
+    tf = main_text_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Quand chaque minute compte,\nl'information vitale protege l'assure... et securise l'assureur."
+    p.font.size = Pt(18)
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Motto
+    motto_box = slide11.shapes.add_textbox(Inches(0.5), Inches(4), Inches(12.333), Inches(0.7))
+    tf = motto_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "moins chercher, c'est plus sauver."
+    p.font.size = Pt(24)
+    p.font.bold = True
+    p.font.color.rgb = RGBColor(254, 243, 199)
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Human commitment
+    hc_box = slide11.shapes.add_textbox(Inches(0.5), Inches(4.8), Inches(12.333), Inches(2))
+    tf = hc_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "Un engagement humain\n\nAu-dela d'un produit, c'est une demarche de prevention,\nde responsabilite et de respect de la vie.\n\nSafeHug est un investissement humain\na retour assurantiel durable."
+    p.font.size = Pt(14)
+    p.font.color.rgb = WHITE
+    p.alignment = PP_ALIGN.CENTER
+    
+    # Save the presentation
+    output_path = "/Users/mac/Desktop/SAFEHUG/SafeHug-Presentation.pptx"
+    prs.save(output_path)
+    print("PowerPoint created successfully:", output_path)
+    print("Total slides: 11")
+    print("File size:", round(os.path.getsize(output_path) / 1024, 1), "KB")
+
+if __name__ == "__main__":
+    create_safehug_presentation()
+</parameter>

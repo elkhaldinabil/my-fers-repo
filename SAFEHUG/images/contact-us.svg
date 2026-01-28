@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" fill="none">
+  <!-- Background -->
+  <rect width="300" height="250" fill="#F8FAFC"/>
+  
+  <!-- Main envelope/contact icon -->
+  <g transform="translate(75, 50)">
+    <!-- Envelope body -->
+    <rect x="0" y="30" width="150" height="100" rx="8" fill="#1E40AF"/>
+    <rect x="0" y="30" width="150" height="80" rx="8" fill="#3B82F6"/>
+    
+    <!-- Envelope flap -->
+    <path d="M0 30L75 80L150 30" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2"/>
+    
+    <!-- Paper inside -->
+    <rect x="20" y="40" width="110" height="60" rx="4" fill="white"/>
+    <line x1="30" y1="55" x2="120" y2="55" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="30" y1="70" x2="100" y2="70" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="30" y1="85" x2="110" y2="85" stroke="#CBD5E1" stroke-width="2"/>
+  </g>
+  
+  <!-- Contact person illustration -->
+  <g transform="translate(100, 170)">
+    <circle cx="50" cy="30" r="25" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2"/>
+    <circle cx="50" cy="20" r="12" fill="#1E40AF"/>
+    <path d="M25 50Q50 65 75 50" stroke="#1E40AF" stroke-width="3" fill="none"/>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#059669" stroke-width="2">
+    <line x1="100" y1="100" x2="100" y2="145"/>
+    <circle cx="100" cy="100" r="5" fill="#059669"/>
+    
+    <line x1="200" y1="100" x2="200" y2="145"/>
+    <circle cx="200" cy="100" r="5" fill="#059669"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g transform="translate(40, 80)">
+    <circle cx="0" cy="0" r="15" fill="#DC2626" opacity="0.2"/>
+    <path d="M-5 0L0 -5L5 0M0 5L0 -10" stroke="#DC2626" stroke-width="2"/>
+  </g>
+  
+  <g transform="translate(250, 120)">
+    <circle cx="0" cy="0" r="15" fill="#059669" opacity="0.2"/>
+    <path d="M-5 0L5 0M0 -5L0 5" stroke="#059669" stroke-width="2"/>
+  </g>
+  
+  <g transform="translate(50, 200)">
+    <circle cx="0" cy="0" r="12" fill="#F59E0B" opacity="0.2"/>
+    <circle cx="0" cy="0" r="5" fill="#F59E0B"/>
+  </g>
+  
+  <g transform="translate(240, 210)">
+    <circle cx="0" cy="0" r="12" fill="#3B82F6" opacity="0.2"/>
+    <circle cx="0" cy="0" r="5" fill="#3B82F6"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="150" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1E40AF">Parlons de votre projet</text>
+</svg>

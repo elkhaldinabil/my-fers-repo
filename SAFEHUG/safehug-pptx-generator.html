@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHug - Générateur PowerPoint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #1E40AF;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #1E40AF;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #64748B;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #EA580C 0%, #F97316 100%);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .download-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.4);
+        }
+        .download-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .features h3 {
+            color: #1E40AF;
+            margin-bottom: 20px;
+        }
+        .features ul {
+            list-style: none;
+        }
+        .features li {
+            padding: 10px 0;
+            color: #1E293B;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .features li:last-child {
+            border-bottom: none;
+        }
+        .features li::before {
+            content: "✓";
+            color: #059669;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .loading-container {
+            display: none;
+            margin: 30px 0;
+        }
+        .loading-container.active {
+            display: block;
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #EA580C;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-text {
+            font-size: 1.2rem;
+            color: #1E40AF;
+            font-weight: 600;
+        }
+        .loading-subtext {
+            font-size: 0.95rem;
+            color: #64748B;
+            margin-top: 8px;
+        }
+        .status-message {
+            display: none;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .status-message.active {
+            display: block;
+        }
+        .status-message.success {
+            background: #dcfce7;
+            border: 2px solid #059669;
+            color: #059669;
+        }
+        .status-message.error {
+            background: #fee2e2;
+            border: 2px solid #DC2626;
+            color: #DC2626;
+        }
+        .status-message h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .status-message p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .retry-btn {
+            background: #1E40AF;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .retry-btn:hover {
+            background: #3B82F6;
+        }
+        .debug-info {
+            display: none;
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+        .debug-info.active {
+            display: block;
+        }
+        .debug-toggle {
+            background: transparent;
+            border: 1px solid #94a3b8;
+            color: #64748B;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">SafeHug</div>
+        <h1>Générateur PowerPoint</h1>
+        <p>Cliquez sur le bouton ci-dessous pour télécharger votre présentation SafeHug au format PowerPoint (.pptx)</p>
+        
+        <button class="download-btn" id="downloadBtn" onclick="downloadPPTX()">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zm-3 9h4v2h-4v-2zm0 4h4v2h-4v-2z"/>
+            </svg>
+            Télécharger PPTX
+        </button>
+
+        <div class="loading-container" id="loadingContainer">
+            <div class="spinner"></div>
+            <div class="loading-text">Génération de votre présentation...</div>
+            <div class="loading-subtext">Veuillez patienter quelques secondes</div>
+        </div>
+
+        <div class="status-message success" id="successMessage">
+            <h3>✓ Téléchargement réussi!</h3>
+            <p>Votre fichier SafeHug-Presentation.pptx a été téléchargé avec succès.</p>
+        </div>
+
+        <div class="status-message error" id="errorMessage">
+            <h3>⚠ Erreur de téléchargement</h3>
+            <p id="errorText">Une erreur est survenue lors de la création du fichier PowerPoint.</p>
+            <button class="retry-btn" onclick="downloadPPTX()">Réessayer</button>
+        </div>
+
+        <button class="debug-toggle" id="debugToggle" onclick="toggleDebug()">Afficher les détails techniques</button>
+        <div class="debug-info" id="debugInfo">
+            <h4>Informations de débogage</h4>
+            <pre id="debugContent"></pre>
+        </div>
+
+        <div class="features">
+            <h3>Présentation内容包括 :</h3>
+            <ul>
+                <li>11 diapositives complètes</li>
+                <li>Design professionnel et cohérent</li>
+                <li>Couleurs SafeHug (bleu & orange)</li>
+                <li>Compatible PowerPoint, Keynote, Google Slides</li>
+            </ul>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+    <script>
+        const DEBUG_MODE = true;
+        let debugLog = [];
+
+        function logDebug(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.push(`[${timestamp}] [${type.toUpperCase()}] ${message}`);
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        function toggleDebug() {
+            const debugInfo = document.getElementById('debugInfo');
+            const debugToggle = document.getElementById('debugToggle');
+            const debugContent = document.getElementById('debugContent');
+            
+            if (debugInfo.classList.contains('active')) {
+                debugInfo.classList.remove('active');
+                debugToggle.textContent = 'Afficher les détails techniques';
+            } else {
+                debugInfo.classList.add('active');
+                debugContent.textContent = debugLog.join('\n') || 'Aucune information disponible.';
+                debugToggle.textContent = 'Masquer les détails techniques';
+            }
+        }
+
+        function showLoading() {
+            document.getElementById('downloadBtn').disabled = true;
+            document.getElementById('loadingContainer').classList.add('active');
+            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('errorMessage').classList.remove('active');
+            logDebug('Loading state activated', 'info');
+        }
+
+        function hideLoading() {
+            document.getElementById('downloadBtn').disabled = false;
+            document.getElementById('loadingContainer').classList.remove('active');
+        }
+
+        function showSuccess() {
+            hideLoading();
+            document.getElementById('successMessage').classList.add('active');
+            document.getElementById('errorMessage').classList.remove('active');
+            logDebug('Success message displayed', 'success');
+        }
+
+        function showError(message, details = '') {
+            hideLoading();
+            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('errorMessage').classList.add('active');
+            document.getElementById('errorText').textContent = message;
+            if (details) {
+                logDebug(`Error details: ${details}`, 'error');
+            }
+            logDebug(`Error displayed: ${message}`, 'error');
+        }
+
+        function checkLibraryLoaded() {
+            logDebug('Checking if PptxGenJS library is loaded...', 'info');
+            if (typeof PptxGenJS === 'undefined') {
+                logDebug('PptxGenJS library NOT found!', 'error');
+                return false;
+            }
+            logDebug('PptxGenJS library found successfully', 'success');
+            return true;
+        }
+
+        function downloadPPTX() {
+            debugLog = [];
+            logDebug('=== Starting PPTX Download Process ===', 'info');
+            
+            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('errorMessage').classList.remove('active');
+
+            if (!checkLibraryLoaded()) {
+                showError(
+                    'La bibliothèque de génération PowerPoint n\'a pas pu être chargée.',
+                    'PptxGenJS is undefined. Possible causes:\n- CDN failed to load\n- Network connection issue\n- Ad blocker preventing script load'
+                );
+                return;
+            }
+
+            showLoading();
+            logDebug('Creating PptxGenJS instance', 'info');
+
+            try {
+                let pptx = new PptxGenJS();
+                pptx.title = "SafeHug - Présentation";
+                pptx.author = "SafeHug";
+                pptx.company = "SafeHug";
+                pptx.subject = "Sécurité Routière et Prévention";
+                pptx.keywords = "SafeHug, sécurité, prévention, assurance";
+                pptx.layout = "LAYOUT_16x9";
+
+                const BLUE = "1E40AF";
+                const ORANGE = "EA580C";
+                const GREEN = "059669";
+                const RED = "DC2626";
+
+                logDebug('Creating slides (11 total)', 'info');
+
+                // Slide 1 - Title
+                let slide1 = pptx.addSlide();
+                slide1.background = { color: BLUE };
+                slide1.addText("SafeHug", { x: 0.5, y: 1.5, w: "90%", h: 1.5, fontSize: 54, fontWeight: "bold", color: "FFFFFF", align: "center" });
+                slide1.addText("Sécurité • Information vitale • Réduction du risque", { x: 0.5, y: 3, w: "90%", h: 0.5, fontSize: 18, color: "FFFFFF", align: "center" });
+                slide1.addText("La housse de ceinture de sécurité avec carte nominative données de santé", { x: 0.5, y: 3.7, w: "90%", h: 0.8, fontSize: 22, fontWeight: "bold", color: "FFFFFF", align: "center" });
+                slide1.addText("Un levier de prévention à fort impact assurantiel", { x: 0.5, y: 4.5, w: "90%", h: 0.5, fontSize: 16, color: "FEF3C7", align: "center" });
+                slide1.addText("SafeHug transforme un objet du quotidien en outil de protection humaine et financière.", { x: 0.5, y: 5.3, w: "90%", h: 0.6, fontSize: 14, color: "FFFFFF", align: "center" });
+
+                // Slide 2 - LE CONSTAT
+                let slide2 = pptx.addSlide();
+                slide2.addText("LE CONSTAT ASSURANTIEL", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 34, fontWeight: "bold", color: BLUE });
+                slide2.addText([
+                    { text: "Sinistres corporels graves à forte charge", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "Décès et invalidités lourdes", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "Rentes et coûts médicaux long terme", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "Contentieux post-accident", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } }
+                ], { x: 0.8, y: 1.5, w: "88%", h: 3 });
+                slide2.addText("Une partie significative de ces coûts est liée à la prise en charge initiale, non optimisée faute d'informations.", { x: 0.5, y: 4.5, w: "90%", h: 0.7, fontSize: 16, color: "1E293B", align: "center", fill: { color: "DBEAFE" }, border: { pt: 1, color: BLUE } });
+                slide2.addText("Le sinistre commence au moment de l'accident, pas à l'hôpital.", { x: 0.5, y: 5.3, w: "90%", h: 0.7, fontSize: 22, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: RED } });
+
+                // Slide 3 - FACTEUR DÉTERMINANT
+                let slide3 = pptx.addSlide();
+                slide3.addText("LE FACTEUR DÉTERMINANT : TEMPS & INFORMATION", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 30, fontWeight: "bold", color: ORANGE });
+                slide3.addText("Lors d'un accident grave :", { x: 0.5, y: 1.4, w: "90%", h: 0.5, fontSize: 18, fontWeight: "bold", color: "1E293B" });
+                slide3.addText([
+                    { text: "la victime est souvent inconsciente,", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } },
+                    { text: "Désorientée, incapable de communiquer,", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } },
+                    { text: "ses données médicales sont inconnues.", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } }
+                ], { x: 0.8, y: 2, w: "88%", h: 1.8 });
+                slide3.addText("La première heure « golden hour » conditionne la survie et les séquelles.", { x: 0.5, y: 3.9, w: "90%", h: 0.7, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: ORANGE } });
+                slide3.addText("« Une information fiable, claire et immédiatement accessible peut faire gagner des minutes précieuses et éviter des erreurs médicales. »", { x: 0.8, y: 4.7, w: "88%", h: 1.2, fontSize: 16, fontStyle: "italic", color: "1E293B", align: "center", fill: { color: "FEF3C7" }, border: { pt: 2, color: ORANGE } });
+                slide3.addText("Sans information fiable, les secours prennent des décisions sous contrainte maximale.", { x: 0.5, y: 5.9, w: "90%", h: 0.6, fontSize: 16, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: RED } });
+
+                // Slide 4 - SECOURS BESOIN
+                let slide4 = pptx.addSlide();
+                slide4.addText("CE DONT LES SECOURS ONT BESOIN", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 30, fontWeight: "bold", color: BLUE });
+                slide4.addText([
+                    { text: "Identité (pour le suivi médical et légal)", options: { bullet: { type: "bullet" }, fontSize: 16, color: "1E293B" } },
+                    { text: "Âge", options: { bullet: { type: "bullet" }, fontSize: 16, color: "1E293B" } },
+                    { text: "Pathologies lourdes connues : diabète, épilepsie, troubles cardiaques", options: { bullet: { type: "bullet" }, fontSize: 16, color: "1E293B" } },
+                    { text: "Traitements critiques : anticoagulants (AVK, Xarelto, Eliquis…), insuline", options: { bullet: { type: "bullet" }, fontSize: 16, color: "1E293B" } },
+                    { text: "Allergies graves : anesthésiques, pénicilline", options: { bullet: { type: "bullet" }, fontSize: 16, color: "1E293B" } },
+                    { text: "Implants médicaux : pacemaker / défibrillateur implantable, pompe à insuline, implant cochléaire", options: { bullet: { type: "bullet" }, fontSize: 16, color: "1E293B" } }
+                ], { x: 0.8, y: 1.3, w: "88%", h: 3 });
+                slide4.addText("Cas concrets où l'information change tout", { x: 0.5, y: 4.3, w: "90%", h: 0.5, fontSize: 18, fontWeight: "bold", color: ORANGE });
+                slide4.addText([
+                    { text: "Une victime inconsciente sous anticoagulants → risque hémorragique majeur → priorité absolue", options: { bullet: { type: "bullet" }, fontSize: 12, color: "1E293B" } },
+                    { text: "Un accidenté avec pacemaker → gestes électriques adaptés, IRM évité", options: { bullet: { type: "bullet" }, fontSize: 12, color: "1E293B" } },
+                    { text: "Une personne épileptique retrouvée au sol → distinction crise / traumatisme", options: { bullet: { type: "bullet" }, fontSize: 12, color: "1E293B" } },
+                    { text: "Allergie grave non connue → un médicament peut devenir mortel", options: { bullet: { type: "bullet" }, fontSize: 12, color: "1E293B" } }
+                ], { x: 0.8, y: 4.9, w: "88%", h: 1.5 });
+
+                // Slide 5 - SOLUTION
+                let slide5 = pptx.addSlide();
+                slide5.addText("SAFEHUG : LA SOLUTION CONCRÈTE", { x: 0.5, y: 0.4, w: "90%", h: 0.7, fontSize: 30, fontWeight: "bold", color: BLUE });
+                slide5.addText("SafeHug, housse de ceinture de sécurité intégrant une carte nominative d'informations vitales :", { x: 0.5, y: 1.3, w: "90%", h: 0.7, fontSize: 16, color: "1E293B", align: "center" });
+                slide5.addText([
+                    { text: "visible immédiatement par les secours", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "accessible sans téléphone, sans réseau", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "positionnée au plus près du conducteur ou passager", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "pensée pour les situations d'urgence réelle", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } }
+                ], { x: 1, y: 2.2, w: "86%", h: 2.5 });
+                slide5.addText("SafeHug rend l'information vitale là où les secours regardent naturellement.", { x: 0.5, y: 5.2, w: "90%", h: 0.7, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: GREEN } });
+
+                // Slide 6 - BÉNÉFICES ASSURÉ
+                let slide6 = pptx.addSlide();
+                slide6.addText("BÉNÉFICES POUR L'ASSURÉ", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 30, fontWeight: "bold", color: BLUE });
+                slide6.addText("Avec SafeHug, l'assuré bénéficie de :", { x: 0.5, y: 1.3, w: "90%", h: 0.5, fontSize: 16, color: "1E293B", align: "center" });
+                slide6.addText([
+                    { text: "une prise en charge médicale plus rapide et plus adaptée", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "une réduction du risque d'erreur médicale", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "une diminution des séquelles potentielles", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } },
+                    { text: "un sentiment de protection et de considération", options: { bullet: { type: "bullet" }, fontSize: 20, color: "1E293B" } }
+                ], { x: 1, y: 2, w: "86%", h: 2.5 });
+                slide6.addText("L'assuré n'est plus un numéro de contrat, mais une vie mieux protégée.", { x: 0.5, y: 5, w: "90%", h: 0.7, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: GREEN } });
+
+                // Slide 7 - BÉNÉFICES ASSUREUR
+                let slide7 = pptx.addSlide();
+                slide7.addText("BÉNÉFICES DIRECTS POUR L'ASSUREUR", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 30, fontWeight: "bold", color: BLUE });
+                slide7.addText("Pour l'assureur, SafeHug permet :", { x: 0.5, y: 1.3, w: "90%", h: 0.5, fontSize: 16, color: "1E293B", align: "center" });
+                slide7.addText([
+                    { text: "une réduction de la gravité des sinistres corporels", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } },
+                    { text: "moins de complications médicales", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } },
+                    { text: "moins d'invalidités lourdes", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } },
+                    { text: "une baisse des rentes longue durée", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } },
+                    { text: "une optimisation du coût moyen par sinistre", options: { bullet: { type: "bullet" }, fontSize: 18, color: "1E293B" } }
+                ], { x: 1, y: 2, w: "86%", h: 2.5 });
+                slide7.addText("Moins de gravité médicale = moins de charge financière durable.", { x: 0.5, y: 5, w: "90%", h: 0.7, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: GREEN } });
+
+                // Slide 8 - PRÉVENTION
+                let slide8 = pptx.addSlide();
+                slide8.addText("SAFEHUG : UN OUTIL DE PRÉVENTION À FORTE VALEUR", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 26, fontWeight: "bold", color: BLUE });
+                slide8.addText([
+                    { text: "Prévention active, utilisable au moment critique", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } },
+                    { text: "Innovation simple, non intrusive", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } },
+                    { text: "Démarche RSE concrète et visible", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } }
+                ], { x: 1, y: 1.8, w: "86%", h: 2 });
+                slide8.addText("SafeHug n'est pas un gadget : c'est un outil de prévention opérationnelle", { x: 0.5, y: 4.5, w: "90%", h: 0.8, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: GREEN } });
+
+                // Slide 9 - CAS D'USAGE
+                let slide9 = pptx.addSlide();
+                slide9.addText("CAS D'USAGE ASSURANTIEL", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 30, fontWeight: "bold", color: BLUE });
+                slide9.addText("SafeHug s'intègre naturellement dans :", { x: 0.5, y: 1.3, w: "90%", h: 0.5, fontSize: 16, color: "1E293B", align: "center" });
+                slide9.addText([
+                    { text: "Assurance Auto", options: { bullet: { type: "bullet" }, fontSize: 24, color: "1E293B" } },
+                    { text: "Flottes et véhicules professionnels", options: { bullet: { type: "bullet" }, fontSize: 24, color: "1E293B" } },
+                    { text: "Assurance Vie & Prévoyance", options: { bullet: { type: "bullet" }, fontSize: 24, color: "1E293B" } },
+                    { text: "Programmes de prévention et fidélisation", options: { bullet: { type: "bullet" }, fontSize: 24, color: "1E293B" } }
+                ], { x: 1, y: 2, w: "86%", h: 2 });
+                slide9.addText("Une solution unique, déployable sur plusieurs lignes de produits.", { x: 0.5, y: 4.8, w: "90%", h: 0.7, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: BLUE } });
+
+                // Slide 10 - POSITIONNEMENT
+                let slide10 = pptx.addSlide();
+                slide10.addText("POSITIONNEMENT STRATÉGIQUE", { x: 0.5, y: 0.4, w: "85%", h: 0.7, fontSize: 30, fontWeight: "bold", color: BLUE });
+                slide10.addText("Avec SafeHug, l'assureur devient :", { x: 0.5, y: 1.3, w: "90%", h: 0.5, fontSize: 16, color: "1E293B", align: "center" });
+                slide10.addText([
+                    { text: "acteur de la prévention", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } },
+                    { text: "partenaire de la survie", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } },
+                    { text: "assureur humain et responsable", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } },
+                    { text: "référence d'innovation utile", options: { bullet: { type: "bullet" }, fontSize: 22, color: "1E293B" } }
+                ], { x: 1, y: 2, w: "86%", h: 2 });
+                slide10.addText("L'assurance évolue : de la réparation vers la protection active.", { x: 0.5, y: 4.8, w: "90%", h: 0.7, fontSize: 18, fontWeight: "bold", color: "FFFFFF", align: "center", fill: { color: GREEN } });
+
+                // Slide 11 - CONCLUSION
+                let slide11 = pptx.addSlide();
+                slide11.background = { color: BLUE };
+                slide11.addText("SafeHug", { x: 0.5, y: 0.5, w: "90%", h: 1, fontSize: 42, fontWeight: "bold", color: "FFFFFF", align: "center" });
+                slide11.addText("Quand chaque minute compte,\nl'information vitale protège l'assuré…\net sécurise l'assureur.", { x: 0.5, y: 2, w: "90%", h: 1.5, fontSize: 18, color: "FFFFFF", align: "center" });
+                slide11.addText("moins chercher, c'est plus sauver.", { x: 0.5, y: 4, w: "90%", h: 0.7, fontSize: 24, fontWeight: "bold", color: "FEF3C7", align: "center" });
+                slide11.addText("Un engagement humain\n\nAu-delà d'un produit, c'est une démarche de prévention,\nde responsabilité et de respect de la vie.\n\nSafeHug est un investissement humain\nà retour assurantiel durable.", { x: 0.5, y: 4.8, w: "90%", h: 2, fontSize: 14, color: "FFFFFF", align: "center" });
+
+                logDebug('All 11 slides created successfully', 'success');
+                logDebug('Starting file generation and download...', 'info');
+
+                // Save the presentation
+                pptx.writeFile({ fileName: "SafeHug-Presentation.pptx" })
+                    .then(() => {
+                        logDebug('PowerPoint created and downloaded successfully!', 'success');
+                        showSuccess();
+                    })
+                    .catch(err => {
+                        logDebug(`Error creating PowerPoint: ${err.message}`, 'error');
+                        showError("Erreur lors de la création du fichier PowerPoint.", err.message);
+                    });
+            } catch (err) {
+                logDebug(`Exception caught: ${err.message}`, 'error');
+                showError("Erreur lors de la création du fichier PowerPoint.", err.message);
+            }
+        }
+    </script>
+</body>
+</html>
+

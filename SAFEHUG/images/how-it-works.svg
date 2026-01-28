@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" fill="none">
+  <!-- Background -->
+  <rect width="600" height="200" fill="#F8FAFC"/>
+  
+  <!-- Step 1: Input -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="100" height="100" rx="12" fill="#1E40AF"/>
+    <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">ÉTAPE 1</text>
+    <rect x="25" y="45" width="50" height="35" rx="4" fill="white"/>
+    <line x1="30" y1="55" x2="70" y2="55" stroke="#1E40AF" stroke-width="2"/>
+    <line x1="30" y1="65" x2="60" y2="65" stroke="#1E40AF" stroke-width="2"/>
+    <line x1="30" y1="75" x2="65" y2="75" stroke="#1E40AF" stroke-width="2"/>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <path d="M165 100L190 100" stroke="#3B82F6" stroke-width="3"/>
+  <polygon points="190,100 180,95 180,105" fill="#3B82F6"/>
+  
+  <!-- Step 2: Card Creation -->
+  <g transform="translate(210, 50)">
+    <rect x="0" y="0" width="100" height="100" rx="12" fill="#3B82F6"/>
+    <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">ÉTAPE 2</text>
+    <rect x="20" y="45" width="60" height="40" rx="4" fill="white"/>
+    <circle cx="50" cy="65" r="12" fill="#DC2626"/>
+    <rect x="46" y="58" width="8" height="14" rx="1" fill="white"/>
+    <rect x="43" y="63" width="14" height="8" rx="1" fill="white"/>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <path d="M325 100L350 100" stroke="#3B82F6" stroke-width="3"/>
+  <polygon points="350,100 340,95 340,105" fill="#3B82F6"/>
+  
+  <!-- Step 3: Integration -->
+  <g transform="translate(370, 50)">
+    <rect x="0" y="0" width="100" height="100" rx="12" fill="#059669"/>
+    <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">ÉTAPE 3</text>
+    <rect x="15" y="50" width="70" height="30" rx="4" fill="#1E40AF"/>
+    <rect x="25" y="55" width="50" height="8" rx="2" fill="#3B82F6"/>
+    <rect x="25" y="67" width="35" height="6" rx="2" fill="#DBEAFE"/>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <path d="M485 100L510 100" stroke="#3B82F6" stroke-width="3"/>
+  <polygon points="510,100 500,95 500,105" fill="#3B82F6"/>
+  
+  <!-- Step 4: Emergency Access -->
+  <g transform="translate(530, 50)">
+    <rect x="0" y="0" width="60" height="100" rx="12" fill="#DC2626"/>
+    <text x="30" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" font-weight="bold">ÉTAPE 4</text>
+    <path d="M15 55L30 45L45 55L38 55L38 75L22 75L22 55Z" fill="white"/>
+    <text x="30" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" font-weight="bold">URGENCE</text>
+  </g>
+  
+  <!-- Labels -->
+  <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Données</text>
+  <text x="260" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#3B82F6" font-weight="bold">Création</text>
+  <text x="420" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#059669" font-weight="bold">Installation</text>
+  <text x="560" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#DC2626" font-weight="bold">Utilisation</text>
+</svg>

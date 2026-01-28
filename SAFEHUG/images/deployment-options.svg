@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" fill="none">
+  <!-- Background -->
+  <rect width="500" height="200" fill="#F8FAFC"/>
+  
+  <!-- Title -->
+  <text x="250" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E40AF">Options de déploiement</text>
+  
+  <!-- Option 1: Auto Insurance -->
+  <g transform="translate(30, 45)">
+    <rect x="0" y="0" width="100" height="130" rx="12" fill="#1E40AF"/>
+    <rect x="0" y="0" width="100" height="25" rx="12" fill="#3B82F6"/>
+    <text x="50" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" font-weight="bold">AUTO</text>
+    
+    <!-- Car icon -->
+    <g transform="translate(25, 40)">
+      <rect x="0" y="15" width="50" height="25" rx="5" fill="white"/>
+      <circle cx="12" cy="42" r="8" fill="#64748B"/>
+      <circle cx="38" cy="42" r="8" fill="#64748B"/>
+    </g>
+    <text x="50" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Particuliers</text>
+    <text x="50" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Flottes</text>
+    <text x="50" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#DBEAFE">+300K véhicules</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <path d="M145 110L165 110" stroke="#3B82F6" stroke-width="2"/>
+  <polygon points="165,110 158,105 158,115" fill="#3B82F6"/>
+  
+  <!-- Option 2: Professional Fleets -->
+  <g transform="translate(185, 45)">
+    <rect x="0" y="0" width="100" height="130" rx="12" fill="#059669"/>
+    <rect x="0" y="0" width="100" height="25" rx="12" fill="#10B981"/>
+    <text x="50" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" font-weight="bold">FLEETES</text>
+    
+    <!-- Truck icon -->
+    <g transform="translate(20, 40)">
+      <rect x="0" y="10" width="25" height="30" rx="3" fill="white"/>
+      <rect x="25" y="20" width="25" height="20" rx="3" fill="white"/>
+      <circle cx="10" cy="45" r="8" fill="#64748B"/>
+      <circle cx="40" cy="45" r="8" fill="#64748B"/>
+    </g>
+    <text x="50" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Entreprises</text>
+    <text x="50" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Utilitaires</text>
+    <text x="50" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#D1FAE5">+50K véhicules</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <path d="M300 110L320 110" stroke="#3B82F6" stroke-width="2"/>
+  <polygon points="320,110 313,105 313,115" fill="#3B82F6"/>
+  
+  <!-- Option 3: Life Insurance -->
+  <g transform="translate(340, 45)">
+    <rect x="0" y="0" width="100" height="130" rx="12" fill="#F59E0B"/>
+    <rect x="0" y="0" width="100" height="25" rx="12" fill="#FBBF24"/>
+    <text x="50" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" font-weight="bold">PRÉVOYANCE</text>
+    
+    <!-- Heart/Life icon -->
+    <g transform="translate(30, 40)">
+      <path d="M20 10C20 5 25 0 30 0C35 0 40 5 40 10C40 20 20 35 20 35C20 35 0 20 0 10C0 5 5 0 10 0C15 0 20 5 20 10Z" fill="white"/>
+    </g>
+    <text x="50" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Garanties</text>
+    <text x="50" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Complémentaires</text>
+    <text x="50" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#FEF3C7">+100K contrats</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(150, 185)">
+    <rect x="0" y="0" width="200" height="10" rx="5" fill="url(#gradient)"/>
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1E40AF"/>
+        <stop offset="50%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#F59E0B"/>
+      </linearGradient>
+    </defs>
+    <text x="100" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748B">Déploiement progressif selon les besoins</text>
+  </g>
+</svg>
