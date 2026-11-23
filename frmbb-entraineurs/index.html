@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Espace Entraîneurs FRMBB</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap">
+<style>
+:root{
+  --g:#1D5FBF;--g2:#4C9BEA;--gold:#A88412;--gold2:#F2C14E;--bg:#F4F7FC;--card:#ffffff;--text:#122033;--muted:#63718A;--line:#E1E8F3;--soft:#EAF0F9;
+  --ok:#16A34A;--okbg:#E7F7EE;--no:#DC2626;--nobg:#FDECEC;--wait:#B76A05;--waitbg:#FEF3E2;--info:#2563A8;--infobg:#E8F0FA;
+  --onG:#ffffff;--goldTxt:#7A600C;--goldBg:#F3EED9;
+  --fb:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;--fa:Tajawal,Poppins,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1420;--card:#16202F;--text:#E8EEF7;--muted:#9AA8BE;--line:#26344A;--soft:#1C2738;
+  --ok:#4ADE80;--okbg:#14301F;--no:#F87171;--nobg:#3A1A1A;--wait:#F5B451;--waitbg:#3A2A10;--info:#7FB3EE;--infobg:#172636;
+  --goldTxt:#E6C76A;--goldBg:#2E2814;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1420;--card:#16202F;--text:#E8EEF7;--muted:#9AA8BE;--line:#26344A;--soft:#1C2738;
+  --ok:#4ADE80;--okbg:#14301F;--no:#F87171;--nobg:#3A1A1A;--wait:#F5B451;--waitbg:#3A2A10;--info:#7FB3EE;--infobg:#172636;
+  --goldTxt:#E6C76A;--goldBg:#2E2814;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--fb);background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+html[lang="ar"] body{font-family:var(--fa);font-size:15px}
+.in{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+
+/* Barre */
+.nav{background:var(--g);color:var(--onG)}
+.nav .in{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:74px;flex-wrap:wrap;padding-block:8px}
+.logo{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.logo img{height:52px;width:auto}
+.logo b{display:block;color:var(--gold2);letter-spacing:3px;font-size:19px;line-height:1.1}
+.logo small{font-size:11px;opacity:.8}
+.links{display:flex;gap:4px;flex-wrap:wrap}
+.links a{color:var(--onG);text-decoration:none;padding:8px 14px;border-radius:10px;font-size:14px;opacity:.82}
+.links a[aria-current="page"]{background:rgba(255,255,255,.13);opacity:1;font-weight:500}
+.lang{display:inline-flex;background:rgba(255,255,255,.1);border-radius:10px;padding:3px;gap:2px}
+.lang button{border:0;background:transparent;color:var(--onG);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;opacity:.8}
+.lang button[aria-pressed="true"]{background:var(--gold2);color:var(--g);opacity:1}
+
+/* Bandeau */
+.hero{background:linear-gradient(155deg,var(--g) 0%,var(--g2) 100%);color:var(--onG);padding-block:26px 86px;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}
+.hero .in{position:relative}
+.hero .in>*:not(.art){max-width:min(640px,100%);position:relative;z-index:1}
+.art{position:absolute;inset-inline-end:max(16px,env(safe-area-inset-right,0px));top:-16px;width:230px;height:auto;pointer-events:none}
+html[dir=rtl] .art{transform:scaleX(-1)}
+@media (max-width:860px){.art{width:190px;opacity:.28;top:-8px}}
+.hero h1{font-size:27px;font-weight:600;margin:0;text-wrap:balance}
+.hero p{opacity:.82;margin:4px 0 0;font-size:14px;max-width:66ch}
+.eyebrow{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold2);font-weight:600;margin-bottom:6px}
+html[lang="ar"] .eyebrow{letter-spacing:0}
+.wrap{margin-top:-58px;position:relative;z-index:1;padding-bottom:40px}
+
+.card{background:var(--card);border-radius:18px;padding:22px;border:1px solid var(--line)}
+h2{font-size:18px;font-weight:600;color:var(--g);margin:0 0 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+:root[data-theme="dark"] h2{color:var(--gold2)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--gold2)}}
+h3{font-size:15px;font-weight:600;margin:0 0 10px}
+.muted{color:var(--muted)}
+.btn{border:0;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap}
+.btn.p{background:var(--g);color:var(--onG)}
+.btn.gold{background:var(--gold2);color:var(--g)}
+.btn.ghost{background:var(--soft);color:var(--text)}
+.btn.sm{padding:7px 12px;font-size:12.5px;border-radius:9px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* Étapes */
+.steps{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px;overflow-x:auto;scrollbar-width:none}
+.steps button{flex:0 0 auto;border:0;background:transparent;color:var(--muted);padding:9px 14px;border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;display:flex;gap:8px;align-items:center}
+.steps button i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--soft);font-size:11px;font-weight:700}
+.steps button[aria-current="step"]{background:var(--g);color:var(--onG)}
+.steps button[aria-current="step"] i{background:var(--gold2);color:var(--g)}
+.steps button.done i{background:var(--okbg);color:var(--ok)}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f label{font-size:12.5px;font-weight:500;color:var(--muted)}
+.f label b{color:var(--no)}
+.f input,.f select,.f textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font-size:14px}
+.f textarea{min-height:90px;resize:vertical}
+.f input[type=checkbox],.check input{width:auto;flex:0 0 auto;margin:2px 0 0;accent-color:var(--g)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--gold2);outline:none;box-shadow:0 0 0 3px rgba(29,95,191,.18)}
+.f .hint{font-size:11.5px;color:var(--muted)}
+.f.err input,.f.err select{border-color:var(--no)}
+.f .msg{font-size:11.5px;color:var(--no)}
+.photo{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.ph{width:96px;height:118px;border-radius:14px;background:var(--soft);border:1.5px dashed var(--line);display:grid;place-items:center;overflow:hidden;color:var(--muted);font-size:11px;text-align:center}
+.ph img{width:100%;height:100%;object-fit:cover}
+.rep{border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px;background:var(--bg)}
+.rep .rh{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:13px;color:var(--goldTxt)}
+.rm{border:0;background:var(--nobg);color:var(--no);border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer}
+.stack{display:grid;gap:12px}
+.up{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.drop{border:1.5px dashed var(--line);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center;cursor:pointer;background:var(--bg);position:relative;min-width:0}
+.drop:hover{border-color:var(--gold2)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.drop .ico{width:42px;height:42px;border-radius:11px;background:var(--goldBg);color:var(--goldTxt);display:grid;place-items:center;flex:0 0 42px}
+.drop b{display:block;font-size:13.5px}
+.drop small{color:var(--muted);font-size:11.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drop.has{border-style:solid;border-color:var(--ok);background:var(--okbg)}
+.drop.has .ico{background:var(--ok);color:#fff}
+.foot{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;margin-top:18px;align-items:start}
+.side{display:grid;gap:16px}
+.tip{background:linear-gradient(155deg,var(--g),var(--g2));color:var(--onG);border:0}
+.tip h3{color:var(--gold2)}
+.tip li{margin-bottom:6px;font-size:13px;opacity:.92}
+.tip ul{margin:0;padding-inline-start:18px}
+.prog{height:8px;background:var(--soft);border-radius:8px;overflow:hidden}
+.prog div{height:100%;background:var(--gold2);border-radius:8px;transition:width .3s}
+.review dl{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:8px 14px;margin:0}
+.review dt{color:var(--muted);font-size:13px}.review dd{margin:0;font-weight:500;min-width:0;overflow-wrap:anywhere}
+.review section{border-bottom:1px solid var(--line);padding-block:14px}
+.review section:last-child{border-bottom:0}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px}
+
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 11px;border-radius:20px;white-space:nowrap}
+.badge:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.b-ok{color:var(--ok);background:var(--okbg)}.b-wait{color:var(--wait);background:var(--waitbg)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:11px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20;max-width:calc(100% - 32px)}
+.toast.on{opacity:1}
+footer{text-align:center;font-size:12px;color:var(--muted);padding-block:0 30px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+@media (max-width:560px){.hero h1{font-size:22px}.review dl{grid-template-columns:1fr}.review dt{margin-top:6px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="nav"><div class="in">
+  <a class="logo" href="#inscription"><img src="https://arbitre.frmbb.ma/images/Logo.png" alt="FRMBB"><span><b>FRMBB</b><small data-t="fed">Fédération Royale Marocaine de Basketball</small></span></a>
+  <div class="lang" role="group" aria-label="Langue">
+    <button type="button" data-l="fr" aria-pressed="true">FR</button>
+    <button type="button" data-l="ar" aria-pressed="false">ع</button>
+    <button type="button" data-l="en" aria-pressed="false">EN</button>
+  </div>
+</div></header>
+
+<section class="hero"><div class="in">
+  <svg class="art" viewBox="0 0 330 230" aria-hidden="true" fill="none">
+  <g transform="rotate(-7 165 120)">
+    <rect x="62" y="22" width="196" height="196" rx="16" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+    <rect x="128" y="12" width="64" height="22" rx="7" fill="#F2C14E"/>
+    <rect x="146" y="6" width="28" height="12" rx="6" fill="none" stroke="#F2C14E" stroke-width="3"/>
+    <g stroke="rgba(255,255,255,.8)" stroke-width="2">
+      <rect x="80" y="46" width="160" height="156" rx="4"/>
+      <path d="M80 124h160"/>
+      <path d="M134 202v-46h52v46"/>
+      <path d="M140 156a20 20 0 0 1 40 0"/>
+      <path d="M96 202v-12a64 64 0 0 1 128 0v12"/>
+      <path d="M140 124a20 20 0 0 1 40 0"/>
+      <circle cx="160" cy="194" r="4"/>
+    </g>
+    <g stroke="#ffffff" stroke-width="3.2" stroke-linecap="round">
+      <path d="M100 66l10 10M110 66l-10 10"/><path d="M200 62l10 10M210 62l-10 10"/><path d="M150 92l10 10M160 92l-10 10"/>
+    </g>
+    <g stroke="#F2C14E" stroke-width="3"><circle cx="118" cy="150" r="7"/><circle cx="214" cy="146" r="7"/><circle cx="196" cy="102" r="7"/></g>
+    <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="5 5">
+      <path d="M106 80c10 30 4 52 8 62"/><path d="M204 76c-6 18-20 26-38 28"/>
+    </g>
+    <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"><path d="M160 106c14 22 18 46 4 70"/><path d="M158 170l6 7 6-9"/><path d="M110 136l4 7 6-6"/><path d="M172 98l-6 6 9 2"/></g>
+  </g>
+  <g transform="translate(250 150) rotate(18)">
+    <path d="M0 18c0-14 11-24 26-24h30v22H34a13 13 0 1 1-34 2z" fill="#F2C14E"/>
+    <circle cx="16" cy="20" r="6" fill="#1D5FBF"/>
+    <rect x="48" y="-6" width="10" height="22" rx="3" fill="#E1A92F"/>
+    <path d="M58 2c18-6 30-24 26-46" stroke="rgba(255,255,255,.7)" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(30 168)">
+    <circle r="26" fill="#F08A3C"/>
+    <g stroke="#7A3510" stroke-width="2.2"><path d="M-26 0h52M0-26v52"/><path d="M-18-18c10 8 10 28 0 36"/><path d="M18-18c-10 8-10 28 0 36"/></g>
+  </g>
+</svg>
+  <div class="eyebrow" id="h-eb"></div>
+  <h1 id="h-t"></h1>
+  <p id="h-p"></p>
+</div></section>
+
+<main class="in wrap" id="view"></main>
+<footer data-t="foot">Fédération Royale Marocaine de Basketball · Direction Technique Nationale · Espace Entraîneurs</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const T = {
+fr:{fed:'Fédération Royale Marocaine de Basketball',
+ priv:'Vos informations et documents sont transmis uniquement à la Direction Technique Nationale de la FRMBB.',
+ sending:'Envoi en cours…',
+ too_big:'Les fichiers sont trop lourds (10 Mo au total maximum). Réduisez la taille des photos ou PDF.',
+ merci_t:'Dossier envoyé',
+ merci_p:'Merci ! Votre dossier a bien été transmis à la Direction Technique Nationale. Vous recevrez une confirmation par e-mail, puis votre carte d’entraîneur après validation.',
+ foot:'Fédération Royale Marocaine de Basketball · Direction Technique Nationale · Espace Entraîneurs',
+ h_ins_eb:'Saison 2026-2027 · Recensement national',
+ h_ins_t:'Fiche d’inscription des entraîneurs',
+ h_ins_p:'Remplissez votre dossier en 7 étapes. Il sera rattaché à votre licence et vous recevrez les mises à jour de votre statut en temps réel.',
+ s1:'Informations personnelles',
+ s2:'Niveau d’instruction',
+ s3:'Diplômes d’entraîneur',
+ s4:'Formations & séminaires',
+ s5:'Parcours d’entraîneur',
+ s6:'Documents',
+ s7:'Vérification',
+ nom:'Nom',
+ prenom:'Prénom',
+ photo:'Photo d’identité',
+ photo_h:'Photo récente, fond clair (JPG ou PNG)',
+ choose:'Choisir une photo',
+ naiss:'Date de naissance',
+ tel:'Téléphone',
+ wa:'WhatsApp',
+ same:'Identique au téléphone',
+ email:'E-mail',
+ cin:'Numéro de CIN',
+ licence:'Numéro de licence',
+ profession:'Profession',
+ diplome:'Dernier diplôme obtenu',
+ libelle:'Libellé du diplôme',
+ libelle_h:'Ex. : Licence en sciences et techniques du sport',
+ autre:'Précisez (si « Autre »)',
+ deg:'Degré du diplôme',
+ date_obt:'Date d’obtention',
+ ville:'Ville',
+ instr:'Instructeur(s)',
+ add_dip:'Ajouter un diplôme',
+ dip_n:'Diplôme',
+ sem:'Séminaire',
+ form:'Formation',
+ intitule:'Intitulé',
+ organisme:'Organisme',
+ annee:'Année',
+ add_sem:'Ajouter un séminaire',
+ add_form:'Ajouter une formation',
+ club:'Club',
+ saison:'Saison(s)',
+ role:'Fonction',
+ add_club:'Ajouter un club',
+ exp_n:'Expérience',
+ up_cin:'Photo de la CIN',
+ up_lic:'Photo de la licence',
+ up_pass:'Photo du passeport',
+ up_dip:'Photos des diplômes',
+ up_h:'JPG, PNG ou PDF',
+ up_hm:'Plusieurs fichiers possibles',
+ files:'fichier(s)',
+ rem:'Remarques',
+ rem_h:'Informations complémentaires pour la Direction Technique',
+ prev:'Précédent',
+ next:'Suivant',
+ submit:'Envoyer mon dossier',
+ certify:'Je certifie que les informations fournies sont exactes et j’accepte leur traitement par la FRMBB.',
+ required:'Champ obligatoire',
+ bad_email:'Adresse e-mail invalide',
+ bad_tel:'Numéro invalide (ex. 06 12 34 56 78)',
+ fix:'Complétez les champs signalés',
+ tip_t:'Avant de commencer',
+ tip1:'Préparez votre CIN, votre licence et vos diplômes (photo ou scan).',
+ tip2:'Ajoutez tous vos diplômes d’entraîneur, du plus récent au plus ancien.',
+ tip3:'Votre statut de licence sera mis à jour automatiquement.',
+ progress:'Dossier complété à',
+ none:'Non renseigné',
+ missing:'manquant'},
+ar:{fed:'الجامعة الملكية المغربية لكرة السلة',
+ priv:'تُرسل معلوماتك ووثائقك حصريا إلى الإدارة التقنية الوطنية للجامعة.',
+ sending:'جاري الإرسال…',
+ too_big:'الملفات كبيرة جدا (10 ميغا كحد أقصى). المرجو تصغير الصور أو الملفات.',
+ merci_t:'تم إرسال الملف',
+ merci_p:'شكرا! تم إرسال ملفك إلى الإدارة التقنية الوطنية. ستتوصل بتأكيد عبر البريد الإلكتروني، ثم ببطاقة المدرب بعد المصادقة.',
+ foot:'الجامعة الملكية المغربية لكرة السلة · الإدارة التقنية الوطنية · فضاء المدربين',
+ h_ins_eb:'موسم 2026-2027 · الإحصاء الوطني',
+ h_ins_t:'استمارة تسجيل المدربين',
+ h_ins_p:'املأ ملفك في 7 مراحل. سيتم ربطه برخصتك وستتوصل بتحديثات وضعيتك في الوقت الفعلي.',
+ s1:'المعلومات الشخصية',
+ s2:'المستوى الدراسي',
+ s3:'شواهد التدريب',
+ s4:'التكوينات والندوات',
+ s5:'المسار التدريبي',
+ s6:'الوثائق',
+ s7:'المراجعة',
+ nom:'الاسم العائلي',
+ prenom:'الاسم الشخصي',
+ photo:'صورة شخصية',
+ photo_h:'صورة حديثة بخلفية فاتحة (JPG أو PNG)',
+ choose:'اختيار صورة',
+ naiss:'تاريخ الازدياد',
+ tel:'الهاتف',
+ wa:'واتساب',
+ same:'نفس رقم الهاتف',
+ email:'البريد الإلكتروني',
+ cin:'رقم البطاقة الوطنية',
+ licence:'رقم الرخصة',
+ profession:'المهنة',
+ diplome:'آخر شهادة محصل عليها',
+ libelle:'اسم الشهادة',
+ libelle_h:'مثال: إجازة في علوم وتقنيات الرياضة',
+ autre:'حدد (إذا اخترت « أخرى »)',
+ deg:'درجة الشهادة',
+ date_obt:'تاريخ الحصول',
+ ville:'المدينة',
+ instr:'المؤطر(ون)',
+ add_dip:'إضافة شهادة',
+ dip_n:'شهادة',
+ sem:'ندوة',
+ form:'تكوين',
+ intitule:'العنوان',
+ organisme:'الجهة المنظمة',
+ annee:'السنة',
+ add_sem:'إضافة ندوة',
+ add_form:'إضافة تكوين',
+ club:'النادي',
+ saison:'الموسم / المواسم',
+ role:'المهمة',
+ add_club:'إضافة نادٍ',
+ exp_n:'تجربة',
+ up_cin:'صورة البطاقة الوطنية',
+ up_lic:'صورة الرخصة',
+ up_pass:'صورة جواز السفر',
+ up_dip:'صور الشواهد',
+ up_h:'JPG أو PNG أو PDF',
+ up_hm:'يمكن إرفاق عدة ملفات',
+ files:'ملف(ات)',
+ rem:'ملاحظات',
+ rem_h:'معلومات إضافية للإدارة التقنية',
+ prev:'السابق',
+ next:'التالي',
+ submit:'إرسال ملفي',
+ certify:'أشهد بصحة المعلومات المقدمة وأوافق على معالجتها من طرف الجامعة.',
+ required:'حقل إلزامي',
+ bad_email:'بريد إلكتروني غير صالح',
+ bad_tel:'رقم غير صالح (مثال 06 12 34 56 78)',
+ fix:'أكمل الحقول المشار إليها',
+ tip_t:'قبل البدء',
+ tip1:'جهز بطاقتك الوطنية ورخصتك وشواهدك (صورة أو نسخة ممسوحة).',
+ tip2:'أضف جميع شواهد التدريب من الأحدث إلى الأقدم.',
+ tip3:'سيتم تحيين وضعية رخصتك تلقائيا.',
+ progress:'نسبة إتمام الملف',
+ none:'غير مُدخل',
+ missing:'ناقص'},
+en:{fed:'Royal Moroccan Basketball Federation',
+ priv:'Your information and documents are sent only to the FRMBB National Technical Department.',
+ sending:'Sending…',
+ too_big:'Files are too large (10 MB in total). Please reduce your photos or PDFs.',
+ merci_t:'File submitted',
+ merci_p:'Thank you! Your file has been sent to the National Technical Department. You will receive an email confirmation, then your coach card after validation.',
+ foot:'Royal Moroccan Basketball Federation · National Technical Department · Coaches Portal',
+ h_ins_eb:'2026-2027 season · National census',
+ h_ins_t:'Coach registration form',
+ h_ins_p:'Complete your file in 7 steps. It will be linked to your licence and you will receive status updates in real time.',
+ s1:'Personal information',
+ s2:'Education',
+ s3:'Coaching diplomas',
+ s4:'Training & seminars',
+ s5:'Coaching career',
+ s6:'Documents',
+ s7:'Review',
+ nom:'Last name',
+ prenom:'First name',
+ photo:'ID photo',
+ photo_h:'Recent photo, light background (JPG or PNG)',
+ choose:'Choose a photo',
+ naiss:'Date of birth',
+ tel:'Phone',
+ wa:'WhatsApp',
+ same:'Same as phone',
+ email:'Email',
+ cin:'National ID (CIN)',
+ licence:'Licence number',
+ profession:'Occupation',
+ diplome:'Highest degree',
+ libelle:'Degree title',
+ libelle_h:'E.g. Bachelor in sports science',
+ autre:'Specify (if “Other”)',
+ deg:'Diploma level',
+ date_obt:'Date obtained',
+ ville:'City',
+ instr:'Instructor(s)',
+ add_dip:'Add a diploma',
+ dip_n:'Diploma',
+ sem:'Seminar',
+ form:'Training',
+ intitule:'Title',
+ organisme:'Organiser',
+ annee:'Year',
+ add_sem:'Add a seminar',
+ add_form:'Add a training',
+ club:'Club',
+ saison:'Season(s)',
+ role:'Role',
+ add_club:'Add a club',
+ exp_n:'Experience',
+ up_cin:'National ID photo',
+ up_lic:'Licence photo',
+ up_pass:'Passport photo',
+ up_dip:'Diploma photos',
+ up_h:'JPG, PNG or PDF',
+ up_hm:'Several files allowed',
+ files:'file(s)',
+ rem:'Remarks',
+ rem_h:'Additional information for the Technical Department',
+ prev:'Back',
+ next:'Next',
+ submit:'Submit my file',
+ certify:'I certify that the information provided is accurate and agree to its processing by the FRMBB.',
+ required:'Required field',
+ bad_email:'Invalid email address',
+ bad_tel:'Invalid number (e.g. 06 12 34 56 78)',
+ fix:'Complete the highlighted fields',
+ tip_t:'Before you start',
+ tip1:'Have your ID, licence and diplomas ready (photo or scan).',
+ tip2:'Add all your coaching diplomas, most recent first.',
+ tip3:'Your licence status will update automatically.',
+ progress:'File completed',
+ none:'Not provided',
+ missing:'missing'}
+};
+const OPTS = {
+ diplome:{fr:['Baccalauréat','Bac+2 (DEUG, DUT, BTS, DTS)','Bac+3 (Licence)','Bac+5 (Master, Ingénieur)','Doctorat','Niveau inférieur au Bac','Autre'],
+          ar:['البكالوريا','باك+2 (DEUG، DUT، BTS، DTS)','باك+3 (الإجازة)','باك+5 (الماستر، مهندس)','الدكتوراه','مستوى أقل من البكالوريا','أخرى'],
+          en:['Baccalaureate','2-year degree (DEUG, DUT, BTS, DTS)','Bachelor’s degree','Master’s / Engineering','Doctorate','Below Baccalaureate','Other']},
+ deg:{fr:['Degré 1 (D1)','Degré 2 (D2)','Degré 3 (D3)','International','Autres'],
+      ar:['الدرجة الأولى (D1)','الدرجة الثانية (D2)','الدرجة الثالثة (D3)','دولي','أخرى'],
+      en:['Degree 1 (D1)','Degree 2 (D2)','Degree 3 (D3)','International','Other']},
+ role:{fr:['Entraîneur principal','Entraîneur adjoint','Préparateur physique','Entraîneur des jeunes'],ar:['مدرب رئيسي','مدرب مساعد','معد بدني','مدرب الفئات الصغرى'],en:['Head coach','Assistant coach','Strength & conditioning','Youth coach']}
+};
+let L = 'fr';
+const t = k => (T[L] && T[L][k]) || T.fr[k] || k;
+const opt = (k, i) => (OPTS[k][L] || OPTS[k].fr)[i] ?? '';
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),2400);}
+
+/* Exemples de démonstration (non enregistrés) */
+
+/* État du formulaire (exemple pré-rempli) */
+const F = {
+ step:0, photo:'', nom:'', prenom:'', naiss:'', tel:'', wa:'', same:true, email:'', cin:'', licence:'', profession:'',
+ diplome:'0', libelle:'', autre:'',
+ dips:[{deg:'0',date:'',ville:'',instr:''}], sems:[], forms:[], exps:[{club:'',saison:'',role:'0'}],
+ up:{cin:[],lic:[],pass:[],dip:[]}, rem:'', ok:false
+};
+const FILES = {photo:null,cin:[],lic:[],pass:[],dip:[]};
+const STEPS = ['s1','s2','s3','s4','s5','s6','s7'];
+
+function fld(id, label, val, o = {}) {
+  const req = o.req ? ' <b>*</b>' : '';
+  const inner = o.sel
+    ? `<select id="${id}" data-k="${id}">${o.sel.map((x,i)=>`<option value="${i}" ${String(val)===String(i)?'selected':''}>${esc(x)}</option>`).join('')}</select>`
+    : o.area ? `<textarea id="${id}" data-k="${id}" placeholder="${esc(o.ph||'')}">${esc(val)}</textarea>`
+    : `<input id="${id}" data-k="${id}" type="${o.type||'text'}" value="${esc(val)}" ${o.ph?`placeholder="${esc(o.ph)}"`:''} ${o.im?`inputmode="${o.im}"`:''} ${o.dir?`dir="${o.dir}"`:''}>`;
+  return `<div class="f" data-f="${id}"><label for="${id}">${esc(label)}${req}</label>${inner}${o.hint?`<span class="hint">${esc(o.hint)}</span>`:''}<span class="msg" hidden></span></div>`;
+}
+function repField(list, i, key, label, val, o = {}) {
+  const id = `${list}-${i}-${key}`;
+  const inner = o.sel
+    ? `<select id="${id}" data-r="${list}" data-i="${i}" data-rk="${key}">${o.sel.map((x,j)=>`<option value="${j}" ${String(val)===String(j)?'selected':''}>${esc(x)}</option>`).join('')}</select>`
+    : `<input id="${id}" data-r="${list}" data-i="${i}" data-rk="${key}" type="${o.type||'text'}" value="${esc(val)}" ${o.im?`inputmode="${o.im}"`:''}>`;
+  return `<div class="f"><label for="${id}">${esc(label)}</label>${inner}</div>`;
+}
+const blocks = (list, title, fields, addKey) => `<div class="stack">${F[list].map((r,i)=>`<div class="rep"><div class="rh"><span>${esc(title)} ${i+1}</span>${F[list].length>1||list!=='dips'?`<button type="button" class="rm" data-del="${list}" data-i="${i}">✕</button>`:''}</div><div class="formgrid">${fields(r,i)}</div></div>`).join('')}
+  <div><button type="button" class="btn ghost sm" data-add="${list}">+ ${esc(t(addKey))}</button></div></div>`;
+
+function stepBody() {
+  const s = F.step;
+  if (s === 0) return `<div class="photo"><div class="ph" id="phbox">${F.photo?`<img src="${F.photo}" alt="">`:esc(t('photo'))}</div>
+      <div class="f" style="flex:1"><label for="photo">${esc(t('photo'))}</label><div><label class="btn ghost sm" for="photo" style="cursor:pointer">${esc(t('choose'))}</label><input id="photo" type="file" accept="image/*" hidden></div><span class="hint">${esc(t('photo_h'))}</span></div></div>
+    <div class="formgrid" style="margin-top:16px">
+      ${fld('nom',t('nom'),F.nom,{req:1})}${fld('prenom',t('prenom'),F.prenom,{req:1})}${fld('naiss',t('naiss'),F.naiss,{req:1,type:'date'})}
+      ${fld('tel',t('tel'),F.tel,{req:1,type:'tel',im:'tel',ph:'06 00 00 00 00',dir:'ltr'})}
+      <div class="f"><label for="wa">${esc(t('wa'))}</label><input id="wa" data-k="wa" type="tel" inputmode="tel" dir="ltr" value="${esc(F.wa)}" ${F.same?'disabled':''}><label class="check" style="margin:0;font-size:12px"><input type="checkbox" id="same" ${F.same?'checked':''}> ${esc(t('same'))}</label></div>
+      ${fld('email',t('email'),F.email,{req:1,type:'email',im:'email',dir:'ltr'})}
+      ${fld('cin',t('cin'),F.cin,{req:1,dir:'ltr'})}${fld('licence',t('licence'),F.licence,{dir:'ltr'})}${fld('profession',t('profession'),F.profession)}
+    </div>`;
+  if (s === 1) return `<div class="formgrid">${fld('diplome',t('diplome'),F.diplome,{req:1,sel:OPTS.diplome[L]})}${fld('libelle',t('libelle'),F.libelle,{hint:t('libelle_h')})}${fld('autre',t('autre'),F.autre)}</div>`;
+  if (s === 2) return blocks('dips', t('dip_n'), (r,i)=>repField('dips',i,'deg',t('deg'),r.deg,{sel:OPTS.deg[L]})+repField('dips',i,'date',t('date_obt'),r.date,{type:'date'})+repField('dips',i,'ville',t('ville'),r.ville)+repField('dips',i,'instr',t('instr'),r.instr), 'add_dip');
+  if (s === 3) return `<h3>${esc(t('sem'))}s</h3>${blocks('sems', t('sem'), (r,i)=>repField('sems',i,'titre',t('intitule'),r.titre)+repField('sems',i,'org',t('organisme'),r.org)+repField('sems',i,'annee',t('annee'),r.annee,{im:'numeric'}), 'add_sem')}
+      <h3 style="margin-top:20px">${esc(t('form'))}s</h3>${blocks('forms', t('form'), (r,i)=>repField('forms',i,'titre',t('intitule'),r.titre)+repField('forms',i,'org',t('organisme'),r.org)+repField('forms',i,'annee',t('annee'),r.annee,{im:'numeric'}), 'add_form')}`;
+  if (s === 4) return blocks('exps', t('exp_n'), (r,i)=>repField('exps',i,'club',t('club'),r.club)+repField('exps',i,'saison',t('saison'),r.saison)+repField('exps',i,'role',t('role'),r.role,{sel:OPTS.role[L]}), 'add_club');
+  if (s === 5) return `<div class="up">${[['cin','up_cin',0],['lic','up_lic',0],['pass','up_pass',0],['dip','up_dip',1]].map(([k,lab,multi])=>{const n=F.up[k].length;return `<label class="drop ${n?'has':''}"><span class="ico">${n?'✓':'↑'}</span><span style="min-width:0"><b>${esc(t(lab))}</b><small>${n?esc(F.up[k].join(', ')):esc(t(multi?'up_hm':'up_h'))}</small></span><input type="file" data-up="${k}" accept="image/*,application/pdf" ${multi?'multiple':''} aria-label="${esc(t(lab))}"></label>`;}).join('')}</div>
+      <div style="margin-top:18px">${fld('rem',t('rem'),F.rem,{area:1,ph:t('rem_h')})}</div>`;
+  const v = x => x ? esc(x) : `<span class="muted">${esc(t('none'))}</span>`;
+  return `<div class="review">
+    <section><h3>${esc(t('s1'))}</h3><dl><dt>${esc(t('nom'))} / ${esc(t('prenom'))}</dt><dd>${v(F.nom+' '+F.prenom)}</dd><dt>${esc(t('naiss'))}</dt><dd>${v(F.naiss)}</dd><dt>${esc(t('tel'))} / ${esc(t('wa'))}</dt><dd dir="ltr">${v(F.tel)} · ${v(F.same?F.tel:F.wa)}</dd><dt>${esc(t('email'))}</dt><dd>${v(F.email)}</dd><dt>${esc(t('cin'))}</dt><dd>${v(F.cin)}</dd><dt>${esc(t('licence'))}</dt><dd>${v(F.licence)}</dd><dt>${esc(t('profession'))}</dt><dd>${v(F.profession)}</dd></dl></section>
+    <section><h3>${esc(t('s2'))}</h3><dl><dt>${esc(t('diplome'))}</dt><dd>${v(opt('diplome',F.diplome))}</dd><dt>${esc(t('libelle'))}</dt><dd>${v(F.libelle)}</dd></dl></section>
+    <section><h3>${esc(t('s3'))}</h3><dl>${F.dips.map(d=>`<dt>${esc(opt('deg',d.deg))}</dt><dd>${v([d.date,d.ville,d.instr].filter(Boolean).join(' · '))}</dd>`).join('')}</dl></section>
+    <section><h3>${esc(t('s4'))}</h3><dl>${[...F.sems.map(x=>[t('sem'),x]),...F.forms.map(x=>[t('form'),x])].map(([k,x])=>`<dt>${esc(k)}</dt><dd>${v([x.titre,x.org,x.annee].filter(Boolean).join(' · '))}</dd>`).join('')||`<dt>—</dt><dd>${v('')}</dd>`}</dl></section>
+    <section><h3>${esc(t('s5'))}</h3><dl>${F.exps.map(e=>`<dt>${v(e.saison)}</dt><dd>${v(e.club)} · ${esc(opt('role',e.role))}</dd>`).join('')}</dl></section>
+    <section><h3>${esc(t('s6'))}</h3><dl>${[['cin','up_cin'],['lic','up_lic'],['pass','up_pass'],['dip','up_dip']].map(([k,l])=>`<dt>${esc(t(l))}</dt><dd>${F.up[k].length?`<span class="badge b-ok">${F.up[k].length} ${esc(t('files'))}</span>`:`<span class="badge b-wait">${esc(t('missing'))}</span>`}</dd>`).join('')}</dl></section>
+    <label class="check"><input type="checkbox" id="ok" ${F.ok?'checked':''}> <span>${esc(t('certify'))}</span></label></div>`;
+}
+function completion() {
+  const items = [F.photo,F.nom,F.prenom,F.naiss,F.tel,F.email,F.cin,F.licence,F.dips.some(d=>d.date),F.exps.some(e=>e.club),F.up.cin.length,F.up.lic.length,F.up.dip.length];
+  return Math.round(items.filter(Boolean).length / items.length * 100);
+}
+function viewInscription() {
+  const pct = completion();
+  return `<div class="steps" role="list">${STEPS.map((k,i)=>`<button type="button" role="listitem" data-step="${i}" class="${i<F.step?'done':''}" ${i===F.step?'aria-current="step"':''}><i>${i<F.step?'✓':i+1}</i>${esc(t(k))}</button>`).join('')}</div>
+  <div class="layout">
+    <form class="card" id="form" novalidate>
+      <h2><span>${F.step+1}. ${esc(t(STEPS[F.step]))}</span><span class="muted" style="font-size:12px;font-weight:500">${F.step+1} / 7</span></h2>
+      <div id="sb">${stepBody()}</div>
+      <div class="foot"><button type="button" class="btn ghost" id="prev" ${F.step===0?'disabled':''}>${L==='ar'?'→':'←'} ${esc(t('prev'))}</button>
+        ${F.step<6?`<button type="button" class="btn p" id="next">${esc(t('next'))} ${L==='ar'?'←':'→'}</button>`:`<button type="submit" class="btn gold" id="send">${esc(t('submit'))}</button>`}</div>
+    </form>
+    <aside class="side">
+      <div class="card"><h3>${esc(t('progress'))} <span style="color:var(--goldTxt)">${pct} %</span></h3><div class="prog" aria-hidden="true"><div style="width:${pct}%"></div></div></div>
+      <div class="card tip"><h3>${esc(t('tip_t'))}</h3><ul><li>${esc(t('tip1'))}</li><li>${esc(t('tip2'))}</li><li>${esc(t('tip3'))}</li></ul></div>
+    </aside>
+  </div><p class="note">${esc(t('priv'))}</p>`;
+}
+let view = 'inscription';
+function viewMerci() {
+  return `<div class="card" style="text-align:center;padding:40px 22px;display:grid;gap:12px;justify-items:center"><span class="badge b-ok" style="font-size:14px">✓</span><h2 style="justify-content:center;margin:0">${esc(t('merci_t'))}</h2><p class="muted" style="margin:0;max-width:52ch">${esc(t('merci_p'))}</p></div>`;
+}
+function hero() {
+  if (view === 'merci') { $('#h-eb').textContent = t('h_ins_eb'); $('#h-t').textContent = t('merci_t'); $('#h-p').textContent = ''; return; }
+  $('#h-eb').textContent = t('h_ins_eb'); $('#h-t').textContent = t('h_ins_t'); $('#h-p').textContent = t('h_ins_p');
+}
+function render() {
+  document.documentElement.lang = L; document.documentElement.dir = L==='ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-t]').forEach(e => e.textContent = t(e.dataset.t));
+  document.querySelectorAll('.links a').forEach(a => a.toggleAttribute('aria-current', a.dataset.v===view) || a.dataset.v===view && a.setAttribute('aria-current','page'));
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l===L));
+  hero();
+  $('#view').innerHTML = view==='merci' ? viewMerci() : viewInscription();
+}
+function route() {
+  view = location.hash.slice(1) === 'merci' ? 'merci' : 'inscription';
+  render();
+}
+window.addEventListener('hashchange', route);
+document.querySelector('.lang').addEventListener('click', e => { const b = e.target.closest('[data-l]'); if (!b) return; L = b.dataset.l; try { localStorage.setItem('frmbb-lang', L); } catch (_) {} render(); });
+
+/* Validation */
+const telOk = v => /^(\+?212|0)[5-7]\d{8}$/.test(String(v).replace(/[\s.\-]/g,''));
+function validate() {
+  if (F.step !== 0 && F.step !== 1) return true;
+  const req = F.step===0 ? ['nom','prenom','naiss','tel','email','cin'] : ['diplome'];
+  let ok = true;
+  req.forEach(k => {
+    const box = document.querySelector(`[data-f="${k}"]`); if (!box) return;
+    let m = '';
+    if (!String(F[k] ?? '').trim()) m = t('required');
+    else if (k==='email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(F.email)) m = t('bad_email');
+    else if (k==='tel' && !telOk(F.tel)) m = t('bad_tel');
+    box.classList.toggle('err', !!m); const s = box.querySelector('.msg'); s.textContent = m; s.hidden = !m; if (m) ok = false;
+  });
+  if (!ok) { toast(t('fix')); const f = document.querySelector('.f.err input,.f.err select'); f && f.focus(); }
+  return ok;
+}
+const view$ = $('#view');
+view$.addEventListener('input', e => {
+  const el = e.target;
+  if (el.dataset.k) { F[el.dataset.k] = el.value; if (el.dataset.k==='tel' && F.same) F.wa = el.value; const b = el.closest('.f'); if (b && b.classList.contains('err')) { b.classList.remove('err'); b.querySelector('.msg').hidden = true; } }
+  if (el.dataset.r) F[el.dataset.r][+el.dataset.i][el.dataset.rk] = el.value;
+});
+view$.addEventListener('change', e => {
+  const el = e.target;
+  if (el.id==='same') { F.same = el.checked; if (F.same) F.wa = F.tel; $('#sb').innerHTML = stepBody(); }
+  if (el.id==='ok') F.ok = el.checked;
+  if (el.dataset.k && el.tagName==='SELECT') F[el.dataset.k] = el.value;
+  if (el.dataset.r && el.tagName==='SELECT') F[el.dataset.r][+el.dataset.i][el.dataset.rk] = el.value;
+  if (el.id==='photo' && el.files[0]) { FILES.photo = el.files[0]; const r = new FileReader(); r.onload = () => { F.photo = r.result; render(); }; r.readAsDataURL(el.files[0]); }
+  if (el.dataset.up) { FILES[el.dataset.up] = [...el.files]; F.up[el.dataset.up] = [...el.files].map(f => f.name); render(); }
+});
+view$.addEventListener('click', e => {
+  const el = e.target.closest('button,[data-open]'); if (!el) return;
+  if (el.dataset.step !== undefined) { const s = +el.dataset.step; if (s > F.step && !validate()) return; F.step = s; render(); scrollTo({top:0,behavior:'smooth'}); }
+  else if (el.id==='next') { if (!validate()) return; F.step++; render(); scrollTo({top:0,behavior:'smooth'}); }
+  else if (el.id==='prev') { F.step--; render(); }
+  else if (el.dataset.add) { const k = el.dataset.add; F[k].push(k==='dips'?{deg:'0',date:'',ville:'',instr:''}:k==='exps'?{club:'',saison:'',role:'0'}:{titre:'',org:'',annee:''}); render(); }
+  else if (el.dataset.del) { F[el.dataset.del].splice(+el.dataset.i,1); render(); }
+});
+const ENDPOINT = 'https://formsubmit.co/nabilelkhaldi1997@gmail.com';
+const SITE = 'https://elkhaldinabil.github.io/my-fers-repo/frmbb-entraineurs/';
+async function shrink(f) {
+  if (!f || !/^image\/(jpeg|png|webp|heic|heif)/i.test(f.type) || f.size < 600000) return f;
+  try {
+    const bmp = await createImageBitmap(f); const s = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas'); c.width = Math.round(bmp.width * s); c.height = Math.round(bmp.height * s);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    const b = await new Promise(r => c.toBlob(r, 'image/jpeg', 0.8));
+    return b ? new File([b], f.name.replace(/\.\w+$/, '') + '.jpg', {type:'image/jpeg'}) : f;
+  } catch (_) { return f; }
+}
+view$.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!F.ok) { toast(t('certify')); return; }
+  if (!F.nom.trim() || !F.prenom.trim() || !F.email.trim() || !F.tel.trim() || !F.cin.trim()) { F.step = 0; render(); validate(); return; }
+  const btn = $('#send'); btn.disabled = true; btn.textContent = t('sending');
+  const deg = i => (OPTS.deg.fr)[+i] || '';
+  const rows = [
+    ['Nom', F.nom], ['Prénom', F.prenom], ['Date de naissance', F.naiss], ['Téléphone', F.tel], ['WhatsApp', F.same ? F.tel : F.wa], ['email', F.email],
+    ['CIN', F.cin], ['N° de licence', F.licence], ['Profession', F.profession],
+    ['Niveau d’instruction', (OPTS.diplome.fr)[+F.diplome] + (F.autre ? ' – ' + F.autre : '')], ['Libellé du diplôme', F.libelle],
+    ...F.dips.map((d, i) => ['Diplôme entraîneur ' + (i+1), [deg(d.deg), d.date, d.ville, d.instr && ('Instructeur : ' + d.instr)].filter(Boolean).join(' · ')]),
+    ...F.sems.map((x, i) => ['Séminaire ' + (i+1), [x.titre, x.org, x.annee].filter(Boolean).join(' · ')]),
+    ...F.forms.map((x, i) => ['Formation ' + (i+1), [x.titre, x.org, x.annee].filter(Boolean).join(' · ')]),
+    ...F.exps.map((x, i) => ['Club ' + (i+1), [x.club, x.saison, (OPTS.role.fr)[+x.role]].filter(Boolean).join(' · ')]),
+    ['Remarques', F.rem], ['Langue', L]
+  ];
+  const data = {v:1, nom:F.nom, prenom:F.prenom, naiss:F.naiss, tel:F.tel, wa:F.same?F.tel:F.wa, email:F.email, cin:F.cin, licence:F.licence, profession:F.profession,
+    diplome:+F.diplome, libelle:F.libelle, autre:F.autre, dips:F.dips, sems:F.sems, forms:F.forms, exps:F.exps, rem:F.rem, lang:L,
+    docs:{photo:FILES.photo?1:0, cin:FILES.cin.length, lic:FILES.lic.length, pass:FILES.pass.length, dip:FILES.dip.length}};
+  const form = document.createElement('form'); form.method = 'POST'; form.action = ENDPOINT; form.enctype = 'multipart/form-data'; form.hidden = true;
+  const add = (n, v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v ?? ''; form.appendChild(i); };
+  add('_subject', 'FRMBB-INSCRIPTION ENTRAINEUR — ' + F.nom.toUpperCase() + ' ' + F.prenom);
+  add('_template', 'table'); add('_captcha', 'false'); add('_next', SITE + '#merci');
+  add('_autoresponse', 'Merci, votre dossier d’inscription a bien été reçu par la Direction Technique Nationale de la FRMBB. Vous serez informé(e) après sa validation.');
+  rows.forEach(([n, v]) => add(n, v));
+  add('donnees_json', 'FRMBBJSON' + JSON.stringify(data) + 'FINJSON');
+  let total = 0;
+  const addFiles = async (n, list) => { const dt = new DataTransfer(); for (const f of list) { const s = await shrink(f); total += s.size; dt.items.add(s); } if (!list.length) return; const i = document.createElement('input'); i.type = 'file'; i.name = n; i.multiple = list.length > 1; i.files = dt.files; form.appendChild(i); };
+  try {
+    await addFiles('photo', FILES.photo ? [FILES.photo] : []); await addFiles('cin', FILES.cin); await addFiles('licence', FILES.lic); await addFiles('passeport', FILES.pass);
+    for (let k = 0; k < FILES.dip.length; k++) await addFiles('diplome_' + (k+1), [FILES.dip[k]]);
+  } catch (_) {}
+  if (total > 9.5e6) { btn.disabled = false; btn.textContent = t('submit'); toast(t('too_big')); return; }
+  document.body.appendChild(form); form.submit();
+});
+try { const s = localStorage.getItem('frmbb-lang'); if (s && T[s]) L = s; } catch (_) {}
+route();
+</script>
+
+</body>
+</html>
